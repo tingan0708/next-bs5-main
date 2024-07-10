@@ -1,0 +1,499 @@
+.frontpageLogo img,
+#scroll-down {
+  transition: transform 0.3s ease;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navItem .dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
+  z-index: 8;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.navItem .dropdownContent a {
+  color: #465952;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* 當hover時顯示下拉列表 */
+.navItem:hover .dropdownContent {
+  display: block;
+}
+
+/* 美化下拉列表 */
+.navItem .dropdownContent a:hover {
+  margin: 5px;
+  background-color: #465952;
+  color: #f8b62b;
+  border-radius: 10px;
+}
+
+/* ********首頁元件****** */
+/* 首頁畫面 */
+.frontpage {
+  height: 100vh;
+  position: relative;
+}
+
+.arrow {
+  z-index: 8;
+  position: absolute;
+  color: #fff;
+  font-size: 70px;
+  top: 60%;
+  left: 48.5%;
+  transform: translate(-50%, -50%);
+}
+/* 首頁logo */
+.frontpageLogo {
+  position: absolute;
+  z-index: 8;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.frontpageLogo > img {
+  height: 200px;
+}
+
+.frontpageImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  opacity: 0.5;
+  position: absolute;
+}
+
+/* 最新消息 */
+.news {
+  width: 900px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 2px gray;
+}
+
+.newsList {
+  transition: transform 0.3s ease;
+}
+
+.newsList:hover {
+  background-color: #fefefe;
+  transform: scale(1.05);
+  transition: 0.6s;
+}
+
+.list {
+  width: 100%;
+  margin: 0;
+}
+
+.message {
+  /* background-image: url("/images/wood-board-background.jpg") ; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+}
+.messageBoard {
+  /* background-image: url("/images/papertexture-2061711_1920.jpg"); */
+  background-color: #d3d3d3;
+  padding: 20px;
+  color: rgb(0, 0, 0);
+  box-shadow: 5px 5px 10px rgb(0, 0, 0);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.score {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  font-size: 36px;
+}
+
+.score > label {
+  user-select: none;
+}
+
+.score > input {
+  display: none;
+}
+
+.score > input {
+  display: none; /* 隱藏原始單選按鈕 */
+}
+.score > label {
+  cursor: pointer;
+  color: gray; /* 預設星星顏色 */
+}
+.score > label:before {
+  content: '\f006'; /* 空心星星 */
+  font-family: 'Font Awesome 5 Free';
+}
+.score > label:hover:before,
+.score > label:hover ~ label:before {
+  content: '\f005'; /* 實心星星 */
+  color: gold;
+  font-weight: 900;
+}
+.score > input:checked + label:before,
+.score > input:checked ~ label:before {
+  content: '\f005'; /* 實心星星 */
+  color: gold;
+  font-weight: 900;
+}
+/* .score > label:after {
+  content: "☆";
+} */
+/* .score > label:hover:after {
+  content: "★";
+  color: gold;
+}
+
+.score > label:hover ~ label:after {
+  content: "★";
+  color: gold;
+} */
+
+/* .score > input:checked + label:after {
+  content: "★";
+  color: gold;
+}
+
+.score > input:checked ~ label:after {
+  content: "★";
+  color: gold;
+} */
+
+.commentBoard {
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* 內容水平置中 */
+  align-items: center;
+  /* 內容垂直置中 */
+  text-align: center;
+  /* 文字置中 */
+  margin-bottom: 10px;
+  /* 每條評論之間的間距 */
+}
+
+.commentContent {
+  font-size: 24px;
+  margin-bottom: 10px;
+  /* 每條評論之間的間距 */
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  height: 200px;
+  padding: 10px;
+}
+
+.commentStar {
+  font-size: 36px;
+  margin-bottom: 10px;
+  /* 每條評論之間的間距 */
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.comments {
+  text-align: left;
+  /* 讓文字靠左對齊 */
+  margin-bottom: 20px;
+  /* 每條評論之間的間距 */
+  background-color: #465652;
+  border-radius: 20px;
+  color: black;
+  padding: 10px;
+  padding: 20px;
+  box-shadow: 10px 10px 20px black;
+  width: 600px;
+}
+
+.commentStar > label {
+  user-select: none;
+  color: gold;
+  /* 實心星星和空心星星的顏色 */
+  font-size: 36px;
+  /* 調整星星大小 */
+  margin: 0 2px;
+  /* 星星之間的間距 */
+}
+
+.commentContent > .content {
+  margin-top: 10px;
+}
+
+.container > button {
+  margin: 0 10px;
+  /* 左右箭頭的間距 */
+}
+
+.commentBtn {
+  width: 120px;
+  border-radius: 30px;
+  background-color: #465652;
+  color: white;
+}
+
+@media (max-width: 540px) {
+  .comments {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .commentStar {
+    font-size: 16px;
+  }
+
+  .commentContent {
+    font-size: 12px;
+  }
+
+  .newsList {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 541px) and (max-width: 720px) {
+  .comments {
+    width: 400px;
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  .commentStar {
+    font-size: 28px;
+  }
+
+  .commentContent {
+    font-size: 18px;
+  }
+
+  .newsList {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 960px) {
+  .comments {
+    width: 600px;
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  .commentStar {
+    font-size: 32px;
+  }
+
+  .commentContent {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 961px) and (max-width: 1140px) {
+  .comments {
+    width: 800px;
+    padding: 25px;
+    font-size: 22px;
+  }
+
+  .commentStar {
+    font-size: 36px;
+  }
+
+  .commentContent {
+    font-size: 22px;
+  }
+}
+
+/* .section-secondary-color {
+  background-color: #fdf8ed;
+} */
+
+.frontPageImg {
+  object-fit: cover;
+  width: 100%;
+}
+
+.menuBtn {
+  position: absolute;
+  bottom: 50px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  background: #eece6c;
+  font-family: 'LXGW WenKai Mono TC', monospace;
+}
+
+.menuBtn:hover {
+  background: #ffffff00;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.title {
+  padding-left: 200px;
+}
+
+.title2 {
+  text-align: center;
+}
+
+.background1 {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.233),
+      rgba(255, 255, 255, 0.103)
+    ),
+    url('/images/background1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; /* 避免背景重複 */
+}
+.background2 {
+  /* background-color: #e6e6e6; */
+  background-image: url('/images/background2.png');
+  background-size: cover;
+}
+
+.cardCarousel {
+  --card-width: 80%;
+  --card-max-width: 800px;
+  --card-height: 400px;
+  --carousel-min-width: 600px;
+  z-index: 0;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: var(--card-height);
+  min-width: var(--carousel-min-width);
+  transition: filter 0.3s ease;
+}
+
+@media screen and (max-width: 640px) {
+  .cardCarousel {
+    margin-left: calc((100vw - var(--carousel-min-width) - 40px) / 2);
+  }
+}
+
+.cardCarousel.smoothReturn {
+  transition: all 0.2s ease;
+}
+
+.cardCarousel .card {
+  background: whitesmoke;
+  width: var(--card-width);
+  max-width: var(--card-max-width);
+  text-align: center;
+  padding: 2em;
+  min-width: 250px;
+  height: var(--card-height);
+  position: absolute;
+  margin: 0 auto;
+  color: rgba(0, 0, 0, 0.5);
+  transition: inherit;
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 1em;
+  filter: brightness(0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card.highlight {
+  filter: brightness(1);
+}
+
+.card:nth-of-type(1) {
+  background-image: url('/mudanlow-小圖檔/DSC00596.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.card:nth-of-type(2) {
+  background-image: url('/mudanlow-小圖檔/DSC00598.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.card:nth-of-type(3) {
+  background-image: url('/mudanlow-小圖檔/DSC00578.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.card:nth-of-type(4) {
+  background-image: url('/mudanlow-小圖檔/DSC00719.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.card:nth-of-type(5) {
+  background-image: url('/mudanlow-小圖檔/DSC00626.jpg');
+  background-size: cover;
+  background-position: center;
+}
+/* .card:nth-of-type(5) .image-container {
+  background-image: url("https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg");
+} */
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-size: cover;
+  border-radius: 1em;
+  padding: 1em;
+  /* -webkit-box-shadow: inset 0px 0px 17px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0px 0px 17px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0px 0px 17px 0px rgba(0, 0, 0, 0.3); */
+}
+
+.carouselBtn {
+  padding: 1px 8px;
+  border-radius: 0.5em;
+  position: absolute;
+  bottom: 50px;
+  left: auto;
+  font-size: 18px;
+}
+
+.aboutHire {
+  --widthHire: 100%;
+  position: relative;
+}
+
+.aboutHireImg {
+  width: 100%;
+  object-fit: cover;
+  box-shadow: 2px 2px 2px gray;
+}
+.aboutHire > button {
+  border-radius: 0.5rem;
+  padding: 2px 8px;
+  position: absolute;
+  bottom: 10px;
+  left: calc(var(--widthHire) / 2);
+  transform: translate(-50%, -50%);
+}
