@@ -49,7 +49,7 @@ export default function Navbar() {
             <Image
               className={styles.navbarLogo}
               src="/pics/logo-gold.png"
-              width={150}
+              width={180}
               height={50}
               alt="Logo"
               priority

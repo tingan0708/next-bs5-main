@@ -1,3 +1,88 @@
+body {
+  /* margin: 0;
+  padding: 0; */
+  font-family: 'Merriweather', serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 2;
+  /* overflow-x: hidden; /* 隱藏水平scroll條 */
+  /* overflow-y: auto; 自動顯示垂直scroll條（如果需要） */
+}
+
+/* 字體 */
+
+.lxgw-wenkai-mono-tc-light {
+  font-family: 'LXGW WenKai Mono TC', monospace;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.lxgw-wenkai-mono-tc-regular {
+  font-family: 'LXGW WenKai Mono TC', monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lxgw-wenkai-mono-tc-bold {
+  font-family: 'LXGW WenKai Mono TC', monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'LXGW WenKai Mono TC', monospace;
+  color: #000;
+}
+
+/* .english-text{
+  font-family: "Playfair Display", serif;
+  color: #000;
+} */
+
+p {
+  margin-bottom: 30px;
+}
+
+/* ul、li基本設置 */
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  padding: 8px 0;
+}
+
+/* a標籤基本設置 */
+a {
+  color: #71312c;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  text-decoration: none;
+}
+a:hover,
+a:focus,
+a:active {
+  color: #e4e3e3;
+}
+
+section {
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
+
+/* 按鈕設置 */
+.btn-color {
+  background-color: #eece6c;
+  color: #71312c;
+  font-size: 24px;
+}
+
 .frontpageLogo img,
 #scroll-down {
   transition: transform 0.3s ease;
@@ -223,7 +308,6 @@
   background-color: #465652;
   border-radius: 20px;
   color: black;
-  padding: 10px;
   padding: 20px;
   box-shadow: 10px 10px 20px black;
   width: 600px;
@@ -496,4 +580,8 @@
   bottom: 10px;
   left: calc(var(--widthHire) / 2);
   transform: translate(-50%, -50%);
+}
+
+.rightArrow {
+  font-size: 10px;
 }
