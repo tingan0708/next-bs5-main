@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAnglesDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function FirstPicture() {
   const aboutUsRef = useRef(null)
@@ -45,33 +46,37 @@ export default function FirstPicture() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
+
   return (
     <>
       <div className="frontpage">
-        <div className="frontpage-logo">
-          <img src="/pics/logo-gold.png" alt="" />
+        <div className="frontpage-logo" ref={frontpageLogoRef}>
+          <img src="/pics/logo-gold.png" alt="Logo" />
         </div>
-        <div id="scroll-down">
+        <div id="scroll-down" ref={scrollDownRef}>
           <FontAwesomeIcon
-            icon="fa-solid fa-angles-down"
+            icon={faAnglesDown}
             onClick={scrollToSection}
             className="arrow animate__animated animate__pulse animate__slow animate__infinite"
             role="button"
             onKeyDown={handleKeyDown}
             tabIndex="0"
+            height={70}
           />
         </div>
         <div className="overlay"></div>
         <img
           className="frontpage-img"
           src="images/mudanlow-小圖檔/DSC00618.jpg"
-          alt=""
+          alt="Frontpage"
         />
       </div>
+      <div ref={aboutUsRef}>{/* 您的關於我們內容 */}</div>
       <style jsx>{`
         .frontpage-logo img,
         #scroll-down {
-          transition: transform 0.3s ease;
+          transition: transform 0.3s ease, opacity 0.3s ease,
+            visibility 0.3s ease;
         }
         #scroll-down {
           cursor: pointer;
@@ -87,16 +92,14 @@ export default function FirstPicture() {
           color: #fff;
           font-size: 70px;
           top: 60%;
-          left: 48.5%;
-          transform: translate(-50%, -50%);
-        }
-        /* 首頁logo */
-        .frontpage-logo {
-          position: absolute;
-          z-index: 8;
-          top: 40%;
           left: 50%;
           transform: translate(-50%, -50%);
+        }
+        .frontpage-logo {
+          position: fixed;
+          z-index: 8;
+          top: 30%;
+          left: 30%;
         }
         .frontpage-logo > img {
           height: 200px;

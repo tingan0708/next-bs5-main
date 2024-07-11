@@ -55,6 +55,8 @@
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  font-family: 'LXGW WenKai Mono TC', monospace;
+  font-weight: 900;
 }
 
 /* 當hover時顯示下拉列表 */
@@ -83,7 +85,7 @@
   margin-left: 10px;
   margin-right: 10px;
   font-size: 24px;
-  font-family: 'LXGW WenKai Mono TC' ,monospace;
+  font-family: 'LXGW WenKai Mono TC', monospace;
   font-weight: 900;
   text-decoration: none;
   color: #f1f1f1;
@@ -128,7 +130,7 @@
     z-index: 3;
   }
   .navbarLogo {
-    height: 100%
+    height: 100%;
   }
   .offcanvasContent {
     position: fixed;
@@ -218,7 +220,7 @@
 .dropdown.show {
   max-height: 150px; /* 一個足夠大的值，確保內容完全顯示 */
 }
-.dropdownLink{
+.dropdownLink {
   list-style-type: none;
 }
 .dropdownLink a {
@@ -232,7 +234,7 @@
 }
 
 .faCaretUp {
-  visibility: hidden;
+  display: none;
 }
 .canvasLink.open .faCaretUp {
   display: inline;

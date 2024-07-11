@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styles from './navbar.module.scss'
 import Image from 'next/image'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons'
 
 export default function Navbar() {
   const [isCanvasActive, setIsCanvasActive] = useState(false)
@@ -71,10 +73,15 @@ export default function Navbar() {
           </a>
         </div>
         <div
-          className={styles.hamburger}
+          className={`${styles.hamburger} ${
+            isCanvasActive ? styles.active : ''
+          }`}
           onClick={toggleCanvas}
           onKeyDown={(e) => handleKeyPress(e, toggleCanvas)}
           id="hamburger"
+          tabIndex={0}
+          role="button"
+          property=""
         >
           <div className={styles.bar1}></div>
           <div className={styles.bar2}></div>
@@ -96,15 +103,26 @@ export default function Navbar() {
           <li>
             <a
               href="#"
-              className={styles.canvasLink}
+              className={`${styles.canvasLink} ${
+                isDropdownActive ? styles.open : ''
+              }`}
               id="aboutUsLink"
               onClick={toggleDropdown}
               onKeyPress={(e) => handleKeyPress(e, toggleDropdown)}
               tabIndex={0}
             >
               <div>
-                關於我們 <i className="fa-solid fa-caret-down"></i>
-                <i className="fa-solid fa-caret-up"></i>
+                關於我們{' '}
+                <FontAwesomeIcon
+                  icon={faCaretUp}
+                  height={20}
+                  className={styles.faCaretUp}
+                />
+                <FontAwesomeIcon
+                  icon={faCaretDown}
+                  height={20}
+                  className={styles.faCaretDown}
+                />
               </div>
             </a>
             <div

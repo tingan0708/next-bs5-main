@@ -4,6 +4,8 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
 import FirstPicture from '@/components/mudanlow/frontpage/first-pic'
 import Navbar from '@/components/layout/mudanlow-layout/navbar'
+import Footer from '@/components/layout/mudanlow-layout/footer'
+import FrontPageCarousel from '@/components/mudanlow/frontpage/carousel'
 
 export default function MudanlowIndex() {
   return (
@@ -53,47 +55,7 @@ export default function MudanlowIndex() {
           </div>
         </div>
       </section>
-      <section
-        id="trending-products"
-        className="section-secondary-color background1"
-      >
-        <div className="row d-flex justify-content-center ">
-          <div className="col-4 text-center">
-            <h2 className="display-4 lxgw-wenkai-mono-tc-bold title">
-              餐點介紹
-            </h2>
-            <div className="text-center">1234</div>
-          </div>
-          <div className="col-8">
-            <div className="container-fluid d-flex justify-content-center position-relative">
-              <div className="container lxgw-wenkai-mono-tc-regular">
-                <div className="cardCarousel">
-                  <div className="card" id="1">
-                    <div className="imageContainer"></div>
-                    <button className="carouselBtn">查看菜單</button>
-                  </div>
-                  <div className="card" id="2">
-                    <div className="imageContainer"></div>
-                    <button className="carouselBtn">查看菜單</button>
-                  </div>
-                  <div className="card" id="3">
-                    <div className="imageContainer"></div>
-                    <button className="carouselBtn">查看菜單</button>
-                  </div>
-                  <div className="card" id="4">
-                    <div className="imageContainer"></div>
-                    <button className="carouselBtn">查看菜單</button>
-                  </div>
-                  <div className="card" id="5">
-                    <div className="imageContainer"></div>
-                    <button className="carouselBtn">查看菜單</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FrontPageCarousel />
       {/* 最新消息 */}
       <section id="trending-products" className="news-section background2">
         <div className="container-fluid">
@@ -120,10 +82,11 @@ export default function MudanlowIndex() {
                         <div className="col-7 ">1234</div>
                         <div className="col-1 ">
                           <a href="" title="查看文章">
-                            <div>
+                            <div className="news-arrow">
                               <FontAwesomeIcon
                                 icon={faChevronRight}
-                                size="sm"
+                                className="news-arrow"
+                                height={30}
                               />
                             </div>
                           </a>
@@ -156,8 +119,8 @@ export default function MudanlowIndex() {
               className="frontpageImage"
               src="images/mudanlow-小圖檔/DSC00587.jpg"
               alt=""
-              width={360}
-              height={240}
+              width={400}
+              height={300}
             />
           </div>
           <div className="col-lg-3 col-md-6 p-0">
@@ -165,8 +128,8 @@ export default function MudanlowIndex() {
               className="frontpageImage"
               src="images/mudanlow-小圖檔/DSC00694.jpg"
               alt=""
-              width={360}
-              height={240}
+              width={400}
+              height={300}
             />
           </div>
           <div className="col-lg-3 col-md-6 p-0">
@@ -174,8 +137,8 @@ export default function MudanlowIndex() {
               className="frontpageImage"
               src="images/mudanlow-小圖檔/DSC00583.jpg"
               alt=""
-              width={360}
-              height={240}
+              width={400}
+              height={300}
             />
           </div>
           <div className="col-lg-3 col-md-6 p-0">
@@ -183,8 +146,8 @@ export default function MudanlowIndex() {
               className="frontpageImage"
               src="images/mudanlow-小圖檔/DSC00699.jpg"
               alt=""
-              width={360}
-              height={240}
+              width={400}
+              height={300}
             />
           </div>
         </div>
@@ -294,7 +257,10 @@ export default function MudanlowIndex() {
                             <div className="lxgw-wenkai-mono-tc-regular">
                               編號:
                             </div>
-                            <label className="lxgw-wenkai-mono-tc-regular">
+                            <label
+                              htmlFor=""
+                              className="lxgw-wenkai-mono-tc-regular"
+                            >
                               評分:
                             </label>
                             <div className="comment-star text-center"></div>
@@ -364,6 +330,7 @@ export default function MudanlowIndex() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   )
 }

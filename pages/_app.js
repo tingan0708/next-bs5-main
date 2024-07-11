@@ -30,7 +30,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <AuthProvider>
       <LoaderProvider close={2} CustomLoader={CatLoader}>
-        <CartProvider>{getLayout(<Component {...pageProps} />)}</CartProvider>
+        <CartProvider>{<Component {...pageProps} />}</CartProvider>
       </LoaderProvider>
     </AuthProvider>
   )

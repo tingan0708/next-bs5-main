@@ -5,7 +5,7 @@ body {
   font-size: 18px;
   font-weight: 300;
   line-height: 2;
-  /* overflow-x: hidden; /* 隱藏水平scroll條 */
+  overflow-x: hidden; /* 隱藏水平scroll條 */
   /* overflow-y: auto; 自動顯示垂直scroll條（如果需要） */
 }
 
@@ -135,20 +135,17 @@ section {
 
 .arrow {
   z-index: 8;
-  position: absolute;
+  position: fixed;
   color: #fff;
-  font-size: 70px;
-  top: 60%;
-  left: 48.5%;
-  transform: translate(-50%, -50%);
+  top: 65%;
+  left: 49%;
 }
 /* 首頁logo */
 .frontpageLogo {
-  position: absolute;
+  position: fixed;
   z-index: 8;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 30%;
+  left: 30%;
 }
 .frontpageLogo > img {
   height: 200px;
@@ -512,29 +509,29 @@ section {
 }
 
 .card:nth-of-type(1) {
-  background-image: url('/mudanlow-小圖檔/DSC00596.jpg');
+  background-image: url('/images/mudanlow-小圖檔/DSC00596.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .card:nth-of-type(2) {
-  background-image: url('/mudanlow-小圖檔/DSC00598.jpg');
+  background-image: url('/images/mudanlow-小圖檔/DSC00598.jpg');
   background-size: cover;
   background-position: center;
 }
 
 .card:nth-of-type(3) {
-  background-image: url('/mudanlow-小圖檔/DSC00578.jpg');
+  background-image: url('/images/mudanlow-小圖檔/DSC00578.jpg');
   background-size: cover;
   background-position: center;
 }
 .card:nth-of-type(4) {
-  background-image: url('/mudanlow-小圖檔/DSC00719.jpg');
+  background-image: url('/images/mudanlow-小圖檔/DSC00719.jpg');
   background-size: cover;
   background-position: center;
 }
 .card:nth-of-type(5) {
-  background-image: url('/mudanlow-小圖檔/DSC00626.jpg');
+  background-image: url('/images/mudanlow-小圖檔/DSC00626.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -582,6 +579,6 @@ section {
   transform: translate(-50%, -50%);
 }
 
-.rightArrow {
+.news-arrow {
   font-size: 10px;
 }
