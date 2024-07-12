@@ -15,6 +15,7 @@ import { LoaderProvider } from '@/hooks/use-loader'
 import MudanlowLayout from '@/components/layout/mudanlow-layout'
 // 自訂用載入動畫元件
 import { CatLoader, NoLoader } from '@/hooks/use-loader/components'
+import FirstPicture from '@/components/mudanlow/frontpage/first-pic'
 
 export default function MyApp({ Component, pageProps }) {
   // 導入bootstrap的JS函式庫

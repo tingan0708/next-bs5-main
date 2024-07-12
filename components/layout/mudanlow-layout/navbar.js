@@ -35,7 +35,7 @@ export default function Navbar() {
             </a>
             <div className={styles.dropdownContent}>
               <a href="#">區域介紹</a>
-              <a href="#">最新消息</a>
+              <a href="/mudanlow/news/news-list">最新消息</a>
               <a href="#">人才招募</a>
             </div>
           </div>
@@ -47,7 +47,7 @@ export default function Navbar() {
           </a>
         </div>
         <div className="logo-link">
-          <a href="#" data-nav-section="home">
+          <a href="/mudanlow" data-nav-section="home">
             <Image
               className={styles.navbarLogo}
               src="/pics/logo-gold.png"

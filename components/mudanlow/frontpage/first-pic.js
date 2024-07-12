@@ -113,7 +113,7 @@ export default function FirstPicture() {
 
         .overlay {
           width: 100%;
-          height: 100vh;
+          height: 100%;
           background: #000;
           opacity: 0.5;
           position: absolute;

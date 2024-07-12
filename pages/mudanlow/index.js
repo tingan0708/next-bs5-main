@@ -12,7 +12,7 @@ export default function MudanlowIndex() {
     <>
       <FirstPicture />
       <Navbar />
-      <section id="about-us">
+      <section id="about-us" className="background2">
         <div className="container-fluid p-5">
           <div className="row align-items-center justify-content-center g-5">
             <div className="col-lg-5">
@@ -23,6 +23,7 @@ export default function MudanlowIndex() {
                   className="Image-fluid"
                   width={800}
                   height={600}
+                  priority
                 />
               </div>
             </div>
@@ -57,8 +58,11 @@ export default function MudanlowIndex() {
       </section>
       <FrontPageCarousel />
       {/* 最新消息 */}
-      <section id="trending-products" className="news-section background2">
-        <div className="container-fluid">
+      <section
+        id="trending-products"
+        className="news-section background2 position-relative"
+      >
+        <div className="container-fluid ">
           <div className="row overflow-hidden">
             <div className="display-header pb-3 col-md-12">
               <h2 className="display-4 lxgw-wenkai-mono-tc-bold title">
@@ -110,6 +114,15 @@ export default function MudanlowIndex() {
             </div>
           </div>
         </div>
+        <div>
+          <Image
+            src="pics/background-pic1 (1).png"
+            className="pic1 position-absolute"
+            width={300}
+            height={300}
+            alt=""
+          />
+        </div>
       </section>
       {/* <!-- 照片分割 --> */}
       <div className="container-fluid d-flex justify-content-center align-items-center">
@@ -119,7 +132,7 @@ export default function MudanlowIndex() {
               className="frontpageImage"
               src="images/mudanlow-小圖檔/DSC00587.jpg"
               alt=""
-              width={400}
+              width={600}
               height={300}
             />
           </div>
@@ -128,7 +141,7 @@ export default function MudanlowIndex() {
               className="frontpageImage"
               src="images/mudanlow-小圖檔/DSC00694.jpg"
               alt=""
-              width={400}
+              width={600}
               height={300}
             />
           </div>
@@ -137,7 +150,7 @@ export default function MudanlowIndex() {
               className="frontpageImage"
               src="images/mudanlow-小圖檔/DSC00583.jpg"
               alt=""
-              width={400}
+              width={600}
               height={300}
             />
           </div>
@@ -146,14 +159,17 @@ export default function MudanlowIndex() {
               className="frontpageImage"
               src="images/mudanlow-小圖檔/DSC00699.jpg"
               alt=""
-              width={400}
+              width={600}
               height={300}
             />
           </div>
         </div>
       </div>
       {/* 留言板 */}
-      <section id="message-board" className="section-secondary-color">
+      <section
+        id="message-board"
+        className="section-secondary-color background2"
+      >
         <div className="container-fluid">
           <div className="row">
             <div className="display-header pb-3 col-md-12">
@@ -164,7 +180,7 @@ export default function MudanlowIndex() {
             <div className="d-flex justify-content-center align-items-center text-center">
               <div className="container-fluid">
                 <div className="row">
-                  <div classNameName="display-header pb-3 col-md-12 d-flex justify-content-center align-items-center text-center">
+                  <div className="display-header pb-3 col-md-12 d-flex justify-content-center align-items-center text-center">
                     {/* <!--put your content inside--> */}
                     <div className="row gx-4 gx-lg-5 m-3 justify-content-center messageBoard flex-column align-items-center">
                       <div className="text-center mb-3">
@@ -173,10 +189,10 @@ export default function MudanlowIndex() {
                         </h2>
                       </div>
                       <div className="text-center mb-3">
-                        <label for="" className="lxgw-wenkai-mono-tc-bold">
+                        <label htmlFor="" className="lxgw-wenkai-mono-tc-bold">
                           請給我們評分:
                         </label>
-                        <form id="message" onsubmit="sendData(event)">
+                        <form id="message" onSubmit="sendData(event)">
                           <div className="score">
                             <input
                               type="radio"
@@ -184,7 +200,7 @@ export default function MudanlowIndex() {
                               id="score5"
                               value="5"
                             />
-                            <label className="star" for="score5"></label>
+                            <label className="star" htmlFor="score5"></label>
 
                             <input
                               type="radio"
@@ -192,7 +208,7 @@ export default function MudanlowIndex() {
                               id="score4"
                               value="4"
                             />
-                            <label className="star" for="score4"></label>
+                            <label className="star" htmlFor="score4"></label>
 
                             <input
                               type="radio"
@@ -200,7 +216,7 @@ export default function MudanlowIndex() {
                               id="score3"
                               value="3"
                             />
-                            <label className="star" for="score3"></label>
+                            <label className="star" htmlFor="score3"></label>
 
                             <input
                               type="radio"
@@ -208,7 +224,7 @@ export default function MudanlowIndex() {
                               id="score2"
                               value="2"
                             />
-                            <label className="star" for="score2"></label>
+                            <label className="star" htmlFor="score2"></label>
 
                             <input
                               type="radio"
@@ -216,7 +232,7 @@ export default function MudanlowIndex() {
                               id="score1"
                               value="1"
                             />
-                            <label className="star" for="score1"></label>
+                            <label className="star" htmlFor="score1"></label>
                           </div>
                           <div className="mb-3">
                             <label className="form-label lxgw-wenkai-mono-tc-bold">
@@ -286,12 +302,7 @@ export default function MudanlowIndex() {
       <section id="collections" className="position-relative background1">
         <h2 className="display-4 lxgw-wenkai-mono-tc-bold title2">地圖</h2>
         <div className="container-fluid d-flex justify-content-center">
-          <Image
-            src="images/mudanlow-小圖檔/messageImage_1718801833774.jpg"
-            alt=""
-            width={800}
-            height={600}
-          />
+          <Image src="pics/map.png" alt="" width={1000} height={600} />
         </div>
         <div className="swiper-pagination position-absolute text-center"></div>
       </section>

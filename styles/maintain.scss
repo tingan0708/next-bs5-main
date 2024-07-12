@@ -5,6 +5,7 @@ body {
   font-size: 18px;
   font-weight: 300;
   line-height: 2;
+  height: 100%;
   overflow-x: hidden; /* 隱藏水平scroll條 */
   /* overflow-y: auto; 自動顯示垂直scroll條（如果需要） */
 }
@@ -446,14 +447,14 @@ section {
       rgba(255, 255, 255, 0.233),
       rgba(255, 255, 255, 0.103)
     ),
-    url('/images/background1.jpg');
+    url('/pics/background1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; /* 避免背景重複 */
 }
 .background2 {
   /* background-color: #e6e6e6; */
-  background-image: url('/images/background2.png');
+  background-image: url('/pics/background2.png');
   background-size: cover;
 }
 
@@ -581,4 +582,19 @@ section {
 
 .news-arrow {
   font-size: 10px;
+}
+
+.stickyNavbar {
+  position: relative;
+  color: #fff;
+  background: #465952;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.pic1 {
+  z-index: 1;
+  bottom: 0;
+  right: 50px;
 }
