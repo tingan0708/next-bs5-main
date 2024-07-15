@@ -6,225 +6,147 @@ export default function NewsContent() {
   return (
     <>
       <Navbar />
-      {/* 關鍵字大標&回上頁按鈕 */}
-      <div className="container-fluid">
-        <div className="position-relative">
-          <button className="btn btn-success back-btn">
-            <a href="./news-list.php">回上頁</a>
-          </button>
-          <div className="container-fluid d-flex justify-content-center">
-            <div className="w-50 border-bottom border-dark keyword">
-              <div className="row justify-content-center text-center">
-                <div className="news-title">
-                  <h1>最新消息</h1>
+      <div className="container-fluid newsPage">
+        <div className="newsNavbarPic bg-secondary position-relative">
+          <div className="position-absolute newsNavbarPicText">最新消息</div>
+          <div className="newsNavbarPicOverlay" />
+          <div className="newsMain d-flex justify-content-evenly">
+            <div className="newsContent">
+              <div className="newsTitle">標題</div>
+              <div className="d-flex justify-content-bewteen">
+                <div className="newsContentPic">
+                  <img src="/images/mudanlow-小圖檔/DSC00585.jpg" alt="" />
+                  <div className="line1" />
+                  <div className="line2" />
+                  <div className="date">2024-09-09</div>
+                  <div />
+                </div>
+                <div className="newsMainContent position-relative">
+                  <div className="contentInside">123465</div>
                 </div>
               </div>
-              <div className="row justify-content-center text-center">
-                <h4>The News</h4>
+              <div className="d-flex justify-content-between align-items-center other">
+                <div className="share">分享至:</div>
+                <div className="nextPage">
+                  <button className="nextPageBtn">下一頁</button>
+                </div>
+              </div>
+            </div>
+            <div className="otherContent">
+              <div className="newsTitle">其他消息</div>
+              <div>
+                <ul>
+                  <li />
+                  <li />
+                  <li />
+                  <li />
+                  <li />
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-      {/* 內文 */}
-      <div className="container-fluid d-flex justify-content-center align-items-center">
-        <div className="container-fluid content position-relative">
-          <div className="date">
-            <h4>date</h4>
-          </div>
-          <div className="article-title">
-            <h3 className="fw-bolder">title</h3>
-          </div>
-          <div className="container text-center news-photo d-flex justify-content-center">
-            <img
-              className="img-fluid rounded content-img mr-2 mb-2"
-              src=""
-              alt=""
-            />
-          </div>
-          <div className="news-content">1234</div>
-        </div>
-      </div>
-      {/* 頁碼 */}
-      <div className="container-fluid d-flex justify-content-evenly">
-        <button
-          className="page-btn btn btn-success"
-          onclick="location.href='news-content.php?a_id=<?= $previousId ?>'"
-        >
-          上一頁
-        </button>
-        <button
-          className="page-btn btn btn-success"
-          onclick="location.href='news-content.php?a_id=<?= $nextId ?>'"
-        >
-          下一頁
-        </button>
-      </div>
-      {/* 回頂部按鈕 */}
-      <div>
-        <button id="scrollToTopBtn" onclick="scrollToTop()">
-          回到頂部
-        </button>
-      </div>
+
       <Footer />
       <style jsx>{`
-        .SlideMediaBox {
-          background-color: cornflowerblue;
-          text-align: center;
+        .newsPage {
+          padding: 0 200px;
+          padding-bottom: 800px;
         }
-
-        /* 回上頁按鈕css */
-        .back-btn {
-          top: 100px;
-          left: 100px;
+        .newsNavbarPic {
+          width: 100%;
+          height: 380px;
+          margin: 50px auto;
+          background-image: url(/images/mudanlow-小圖檔/DSC00594.jpg);
+          background-position: 90% 35%;
+          background-repeat: no-repeat;
+          z-index: 1;
+        }
+        .newsNavbarPicOverlay {
+          width: 100%;
+          height: 100%;
+          background: #31313186;
+          z-index: 2;
+        }
+        .newsNavbarPicText {
+          font-size: 54px;
+          font-weight: 900;
+          top: 40%;
+          left: 45%;
+          z-index: 3;
+          color: white;
+        }
+        .newsMain {
+          width: 100%;
+          margin-top: 50px;
+        }
+        .newsContent {
+          width: 65%;
+        }
+        .otherContent {
+          width: 30%;
+        }
+        .newsTitle {
+          border-bottom: 2px dashed gray;
+          font-size: 30px;
+        }
+        .newsContentPic {
+          margin-top: 30px;
+          width: 400px;
+          height: 600px;
           position: relative;
         }
-
-        /* 關鍵字大標 */
-        .keyword {
-          margin-top: 5rem;
+        .newsContentPic > img {
+          width: 100%;
+          object-fit: fill;
         }
-
-        /* 內文css */
-        .content {
-          width: 1200px;
-          height: 100vh;
-          border: 1px solid #366e53;
-          margin-bottom: 50px;
-          margin-top: 50px;
-          background-color: #366e53;
-          border-radius: 20px;
+        .line1 {
+          height: 25%;
+          border-left: 5px solid gray;
+          position: absolute;
+          top: 0;
+          left: -7%;
         }
-
+        .line2 {
+          width: 50%;
+          border-bottom: 5px solid gray;
+          position: absolute;
+          bottom: 6%;
+          right: 0;
+        }
         .date {
+          bottom: 4%;
+          left: 0px;
           position: absolute;
-          top: -35px;
-          color: #999;
+          color: rgb(177, 176, 176);
+          font-size: 24px;
         }
-
-        .article-title {
-          position: absolute;
-          top: 25px;
-          left: 60px;
-          flex-wrap: nowrap;
+        .newsMainContent {
+          width: 400px;
+          height: 100%;
+          margin-bottom: 100px;
         }
-
-        .news-photo {
-          width: 720px;
-          height: 405px;
-          position: absolute;
-          top: 30%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-
-        .news-content {
-          width: 90%;
-          height: 300px;
-          max-width: 800px;
-          border-radius: 10px;
-          position: absolute;
-          top: 70%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          font-size: 20px;
-          padding: 10px;
-          background-color: #fff;
-          outline: 5px dashed black;
-        }
-
-        /* 網頁縮放 */
-        @media (max-width: 800px) {
-          .content {
-            width: 450px;
-          }
-
-          .back-btn {
-            top: 100px;
-            left: 20px;
-          }
-        }
-
-        /* 超連結 */
-        a {
-          color: inherit;
-          text-decoration: inherit;
-          cursor: inherit;
-          cursor: pointer;
-        }
-
-        .page-btn {
-          background: #999;
-          color: #fff;
-          height: 50px;
-          width: 120px;
-          border-radius: 20px;
+        .other {
+          width: 100%;
           margin-bottom: 50px;
-          border: 1px solid #666;
-          font-size: 20px;
+          font-size: 18px;
+        }
+        .contentInside {
+          margin-left: 50px;
+          margin-top: 70px;
+          height: 500px;
+          font-size: 24px;
         }
 
-        /* 回頂部按鈕 */
-        #scrollToTopBtn {
-          display: none;
-          /* 預設隱藏按鈕 */
-          position: fixed;
-          /* 固定在畫面右下角 */
-          bottom: 20px;
-          right: 20px;
-          background-color: #fefef6;
-          color: #366e53;
-          border: none;
+        .nextPageBtn {
+          background-color: #31313186;
+          padding: 5px 15px;
           border-radius: 5px;
-          padding: 10px 20px;
-          font-size: 16px;
-          cursor: pointer;
-          opacity: 0.8;
         }
 
-        .content-img {
-          height: 300px;
-          object-fit: contain;
-        }
-
-        /* 调整内容布局和样式 */
-        @media (max-width: 800px) {
-          .news-content {
-            width: 90%;
-            /* 改变内容宽度 */
-            font-size: 16px;
-            /* 调整字体大小 */
-          }
-
-          .article-title {
-            top: 10px;
-            /* 调整标题位置 */
-            left: 10px;
-          }
-
-          .news-photo {
-            width: 90%;
-          }
-        }
-
-        @media (max-width: 540px) {
-          .news-photo {
-            width: 100%;
-            /* 适应屏幕宽度 */
-          }
-
-          .news-content {
-            width: 90%;
-            /* 改变内容宽度 */
-            font-size: 14px;
-            /* 调整字体大小 */
-          }
-
-          .article-title {
-            top: 10px;
-            /* 调整标题位置 */
-            left: 10px;
-          }
+        .share {
+          color: #000;
         }
       `}</style>
     </>

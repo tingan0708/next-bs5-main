@@ -26,7 +26,7 @@ export default function Navbar() {
     <>
       <div className={styles.stickyNavbar}>
         <div className="d-flex">
-          <a href="#" data-nav-section="frontpage" className={styles.navLink}>
+          <a href="/" data-nav-section="frontpage" className={styles.navLink}>
             主頁
           </a>
           <div className={styles.navItem}>
@@ -34,9 +34,9 @@ export default function Navbar() {
               關於我們
             </a>
             <div className={styles.dropdownContent}>
-              <a href="#">區域介紹</a>
+              <a href="/mudanlow/about-us/introduce">區域介紹</a>
               <a href="/mudanlow/news/news-list">最新消息</a>
-              <a href="#">人才招募</a>
+              <a href="/mudanlow/about-us/hire">人才招募</a>
             </div>
           </div>
           <a href="#" data-nav-section="menu" className={styles.navLink}>
@@ -47,7 +47,7 @@ export default function Navbar() {
           </a>
         </div>
         <div className="logo-link">
-          <a href="/mudanlow" data-nav-section="home">
+          <a href="#" data-nav-section="home">
             <Image
               className={styles.navbarLogo}
               src="/pics/logo-gold.png"
