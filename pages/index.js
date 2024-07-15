@@ -6,6 +6,7 @@ import FirstPicture from '@/components/mudanlow/frontpage/first-pic'
 import Navbar from '@/components/layout/mudanlow-layout/navbar'
 import Footer from '@/components/layout/mudanlow-layout/footer'
 import FrontPageCarousel from '@/components/mudanlow/frontpage/carousel'
+import MessageBoard from '@/components/mudanlow/frontpage/messageboard'
 
 export default function MudanlowIndex() {
   return (
@@ -166,6 +167,7 @@ export default function MudanlowIndex() {
         </div>
       </div>
       {/* 留言板 */}
+      <MessageBoard />
       <section
         id="message-board"
         className="section-secondary-color background2"
