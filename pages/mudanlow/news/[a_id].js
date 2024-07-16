@@ -1,8 +1,76 @@
+import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Footer from '@/components/layout/mudanlow-layout/footer'
 import Navbar from '@/components/layout/mudanlow-layout/navbar'
-import React from 'react'
 
 export default function NewsContent() {
+  const [article, setArticle] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState('')
+  const router = useRouter()
+  const { a_id } = router.query
+  const imageBaseUrl = 'http://localhost:3005/public/img/'
+
+  useEffect(() => {
+    const fetchArticle = async () => {
+      if (!a_id) return
+
+      setIsLoading(true)
+      try {
+        const response = await fetch(
+          `http://localhost:3005/api/articles/api/${a_id}`
+        )
+        const data = await response.json()
+        if (data.success) {
+          setArticle(data.article)
+        } else {
+          setError('文章未找到')
+        }
+      } catch (error) {
+        setError('無法獲取文章數據')
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchArticle()
+  }, [a_id])
+
+  if (error) {
+    return (
+      <>
+        <Navbar />
+        <div className="container-fluid newsPage">
+          <div className="error">{error}</div>
+        </div>
+        <Footer />
+      </>
+    )
+  }
+
+  if (isLoading) {
+    return (
+      <>
+        <Navbar />
+        <div className="container-fluid newsPage">
+          <div className="loading">正在載入...</div>
+        </div>
+        <Footer />
+      </>
+    )
+  }
+
+  if (!article) {
+    return (
+      <>
+        <Navbar />
+        <div className="container-fluid newsPage">
+          <div className="loading">文章載入中...</div>
+        </div>
+        <Footer />
+      </>
+    )
+  }
   return (
     <>
       <Navbar />
@@ -12,17 +80,16 @@ export default function NewsContent() {
           <div className="newsNavbarPicOverlay" />
           <div className="newsMain d-flex justify-content-evenly">
             <div className="newsContent">
-              <div className="newsTitle">標題</div>
-              <div className="d-flex justify-content-bewteen">
+              <div className="newsTitle">{article.title}</div>
+              <div className="d-flex justify-content-between">
                 <div className="newsContentPic">
-                  <img src="/images/mudanlow-小圖檔/DSC00585.jpg" alt="" />
+                  <img src={`${imageBaseUrl}${article.photos}`} alt="" />
                   <div className="line1" />
                   <div className="line2" />
-                  <div className="date">2024-09-09</div>
-                  <div />
+                  <div className="date">{article.date}</div>
                 </div>
                 <div className="newsMainContent position-relative">
-                  <div className="contentInside">123465</div>
+                  <div className="contentInside">{article.content}</div>
                 </div>
               </div>
               <div className="d-flex justify-content-between align-items-center other">
@@ -47,7 +114,6 @@ export default function NewsContent() {
           </div>
         </div>
       </div>
-
       <Footer />
       <style jsx>{`
         .newsPage {
