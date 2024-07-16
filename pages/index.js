@@ -166,148 +166,6 @@ export default function MudanlowIndex() {
           </div>
         </div>
       </div>
-      {/* 留言板 */}
-      <MessageBoard />
-      <section
-        id="message-board"
-        className="section-secondary-color background2"
-      >
-        <div className="container-fluid">
-          <div className="row">
-            <div className="display-header pb-3 col-md-12">
-              <h2 className="display-4 lxgw-wenkai-mono-tc-bold title">
-                留言板
-              </h2>
-            </div>
-            <div className="d-flex justify-content-center align-items-center text-center">
-              <div className="container-fluid">
-                <div className="row">
-                  <div className="display-header pb-3 col-md-12 d-flex justify-content-center align-items-center text-center">
-                    {/* <!--put your content inside--> */}
-                    <div className="row gx-4 gx-lg-5 m-3 justify-content-center messageBoard flex-column align-items-center">
-                      <div className="text-center mb-3">
-                        <h2 className="lxgw-wenkai-mono-tc-bold">
-                          寫下你想說的話吧~
-                        </h2>
-                      </div>
-                      <div className="text-center mb-3">
-                        <label htmlFor="" className="lxgw-wenkai-mono-tc-bold">
-                          請給我們評分:
-                        </label>
-                        <form id="message" onSubmit="sendData(event)">
-                          <div className="score">
-                            <input
-                              type="radio"
-                              name="value"
-                              id="score5"
-                              value="5"
-                            />
-                            <label className="star" htmlFor="score5"></label>
-
-                            <input
-                              type="radio"
-                              name="value"
-                              id="score4"
-                              value="4"
-                            />
-                            <label className="star" htmlFor="score4"></label>
-
-                            <input
-                              type="radio"
-                              name="value"
-                              id="score3"
-                              value="3"
-                            />
-                            <label className="star" htmlFor="score3"></label>
-
-                            <input
-                              type="radio"
-                              name="value"
-                              id="score2"
-                              value="2"
-                            />
-                            <label className="star" htmlFor="score2"></label>
-
-                            <input
-                              type="radio"
-                              name="value"
-                              id="score1"
-                              value="1"
-                            />
-                            <label className="star" htmlFor="score1"></label>
-                          </div>
-                          <div className="mb-3">
-                            <label className="form-label lxgw-wenkai-mono-tc-bold">
-                              輸入內容:
-                            </label>
-                            <textarea
-                              className="form-control"
-                              id="textContent"
-                              name="content"
-                              rows="5"
-                            ></textarea>
-                          </div>
-                          <button
-                            className="btn btn-light lxgw-wenkai-mono-tc-bold btn-color"
-                            type="submit"
-                          >
-                            送出
-                          </button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="container-fluid">
-                <div className="row">
-                  <div className="display-header pb-3 col-md-12">
-                    {/* <!--put your content inside--> */}
-                    <div className="d-flex justify-content-center align-items-center text-center mb-3 commentBoard m-3">
-                      <div className="row align-items-center">
-                        <ul className="list-unstyled" id="comment-list">
-                          {/* <!-- 迭代顯示留言 --> */}
-                          <li className="comments">
-                            <h2 className="text-center lxgw-wenkai-mono-tc-bold">
-                              留言板
-                            </h2>
-                            {/* <!-- 顯示留言的內容和評分 --> */}
-                            <div className="lxgw-wenkai-mono-tc-regular">
-                              編號:
-                            </div>
-                            <label
-                              htmlFor=""
-                              className="lxgw-wenkai-mono-tc-regular"
-                            >
-                              評分:
-                            </label>
-                            <div className="comment-star text-center"></div>
-                            <label className="lxgw-wenkai-mono-tc-regular">
-                              內容:
-                            </label>
-                            <div className="comment-content"></div>
-                            <div className="lxgw-wenkai-mono-tc-regular">
-                              留言時間:
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* <!-- 地圖 --> */}
-      <section id="collections" className="position-relative background1">
-        <h2 className="display-4 lxgw-wenkai-mono-tc-bold title2">地圖</h2>
-        <div className="container-fluid d-flex justify-content-center">
-          <Image src="pics/map.png" alt="" width={1000} height={600} />
-        </div>
-        <div className="swiper-pagination position-absolute text-center"></div>
-      </section>
       {/* <!-- 關於我們&徵才資訊 --> */}
       <section className=" section-secondary-color background2">
         <div className="container">
@@ -343,6 +201,17 @@ export default function MudanlowIndex() {
           </div>
         </div>
       </section>
+      {/* <!-- 地圖 --> */}
+      <section id="collections" className="position-relative background1">
+        <h2 className="display-4 lxgw-wenkai-mono-tc-bold title2">地圖</h2>
+        <div className="container-fluid d-flex justify-content-center">
+          <Image src="pics/map.png" alt="" width={1000} height={600} />
+        </div>
+        <div className="swiper-pagination position-absolute text-center"></div>
+      </section>
+
+      {/* 留言板 */}
+      <MessageBoard />
       <Footer />
     </>
   )
