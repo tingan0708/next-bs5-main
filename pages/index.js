@@ -7,6 +7,7 @@ import Navbar from '@/components/layout/mudanlow-layout/navbar'
 import Footer from '@/components/layout/mudanlow-layout/footer'
 import FrontPageCarousel from '@/components/mudanlow/frontpage/carousel'
 import MessageBoard from '@/components/mudanlow/frontpage/messageboard'
+import Link from 'next/link'
 
 export default function MudanlowIndex() {
   return (
@@ -66,7 +67,7 @@ export default function MudanlowIndex() {
         <div className="container-fluid ">
           <div className="row overflow-hidden">
             <div className="display-header pb-3 col-md-12">
-              <h2 className="display-4 lxgw-wenkai-mono-tc-bold title">
+              <h2 className="display-4 lxgw-wenkai-mono-tc-bold frontTitle">
                 最新消息
               </h2>
               {/* <!--put your content inside--> */}
@@ -81,12 +82,15 @@ export default function MudanlowIndex() {
                     <li className="newsList">
                       <div className="border-bottom border-dark row align-items-center py-3 list">
                         <div className="col-4 ">
-                          <div className="text-secondary ">123</div>
-                          <div className="fw-bolder ">456</div>
+                          <div className="text-secondary ">date</div>
+                          <div className="fw-bolder ">title</div>
                         </div>
-                        <div className="col-7 ">1234</div>
+                        <div className="col-7 ">content</div>
                         <div className="col-1 ">
-                          <a href="" title="查看文章">
+                          <Link
+                            href="/mudanlow/news/news-list"
+                            title="查看文章"
+                          >
                             <div className="news-arrow">
                               <FontAwesomeIcon
                                 icon={faChevronRight}
@@ -94,7 +98,7 @@ export default function MudanlowIndex() {
                                 height={30}
                               />
                             </div>
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </li>
@@ -102,13 +106,13 @@ export default function MudanlowIndex() {
                 </div>
                 <div className="position-relative p-2">
                   <nav className="buttons position-absolute bottom-0 end-0">
-                    <a
+                    <Link
                       className="more-btn"
-                      href="./news-list.php"
+                      href="/mudanlow/news/news-list"
                       data-button="more"
                     >
                       MORE...
-                    </a>
+                    </Link>
                   </nav>
                 </div>
               </div>
@@ -168,8 +172,11 @@ export default function MudanlowIndex() {
       </div>
       {/* <!-- 關於我們&徵才資訊 --> */}
       <section className=" section-secondary-color background2">
-        <div className="container">
-          <div className="row d-flex justify-content-evenly align-items-center">
+        <h2 className="display-4 lxgw-wenkai-mono-tc-bold frontTitle">
+          關於我們
+        </h2>
+        <div className="container mt-5">
+          <div className="row d-flex justify-content-center align-items-center">
             <div className="col-4">
               <div className="aboutHire">
                 <Image
@@ -183,6 +190,22 @@ export default function MudanlowIndex() {
                   場地介紹
                 </button>
               </div>
+            </div>
+            <div className="col-4">
+              <h3>場地介紹</h3>
+              <p className="text-center">
+                我們的餐廳環境溫馨雅緻，裝潢別緻，擁有舒適的座椅和柔和的燈光。寬敞的用餐區和私密的包廂滿足不同需求，適合家庭聚餐、商務宴請和浪漫約會。
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="container mt-5">
+          <div className="row d-flex justify-content-center align-items-center">
+            <div className="col-4 text-end">
+              <h3>人才招募</h3>
+              <p className="text-center">
+                我們的餐廳正在招募熱情、有責任心的員工。無論您是廚師、服務員還是管理人員，我們都歡迎您的加入。提供良好的工作環境和培訓機會，讓您在這裡成長和發展。
+              </p>
             </div>
             <div className="col-4">
               <div className="aboutHire">
@@ -203,7 +226,7 @@ export default function MudanlowIndex() {
       </section>
       {/* <!-- 地圖 --> */}
       <section id="collections" className="position-relative background1">
-        <h2 className="display-4 lxgw-wenkai-mono-tc-bold title2">地圖</h2>
+        <h2 className="display-4 lxgw-wenkai-mono-tc-bold frontTitle2">地圖</h2>
         <div className="container-fluid d-flex justify-content-center">
           <Image src="pics/map.png" alt="" width={1000} height={600} />
         </div>

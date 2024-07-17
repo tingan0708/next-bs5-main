@@ -37,6 +37,8 @@ export const initUserData = {
   line_uid: '',
   name: '',
   email: '',
+  iat: '',
+  exp: '',
 }
 
 export const AuthProvider = ({ children }) => {

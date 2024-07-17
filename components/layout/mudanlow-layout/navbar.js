@@ -3,6 +3,7 @@ import styles from './navbar.module.scss'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link'
 
 export default function Navbar() {
   const [isCanvasActive, setIsCanvasActive] = useState(false)
@@ -34,12 +35,12 @@ export default function Navbar() {
               關於我們
             </a>
             <div className={styles.dropdownContent}>
-              <a href="/mudanlow/about-us/introduce">區域介紹</a>
-              <a href="/mudanlow/news/news-list">最新消息</a>
-              <a href="/mudanlow/about-us/hire">人才招募</a>
+              <Link href="/mudanlow/about-us/introduce">區域介紹</Link>
+              <Link href="/mudanlow/news/news-list">最新消息</Link>
+              <Link href="/mudanlow/about-us/hire">人才招募</Link>
             </div>
           </div>
-          <a href="#" data-nav-section="menu" className={styles.navLink}>
+          <a href="/menu" data-nav-section="menu" className={styles.navLink}>
             菜單
           </a>
           <a href="#" data-nav-section="shopping" className={styles.navLink}>
@@ -62,15 +63,27 @@ export default function Navbar() {
           <a href="#" data-nav-section="reservation" className={styles.navLink}>
             立即預約
           </a>
-          <a href="#" data-nav-section="order" className={styles.navLink}>
-            我的訂單
-          </a>
-          <a href="#" data-nav-section="sign" className={styles.navLink}>
+          <Link
+            href="/member/profile"
+            data-nav-section="order"
+            className={styles.navLink}
+          >
+            會員專區
+          </Link>
+          <Link
+            href="/member/register"
+            data-nav-section="sign"
+            className={styles.navLink}
+          >
             註冊
-          </a>
-          <a href="#" data-nav-section="login" className={styles.navLink}>
+          </Link>
+          <Link
+            href="/member/login"
+            data-nav-section="login"
+            className={styles.navLink}
+          >
             登入
-          </a>
+          </Link>
         </div>
         <div
           className={`${styles.hamburger} ${

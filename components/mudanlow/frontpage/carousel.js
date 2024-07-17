@@ -101,7 +101,7 @@ export default function FrontPageCarousel() {
         // DOM elements
         this.container = container
         this.controllerElement = controller
-        this.cards = Array.from(container.querySelectorAll('.card'))
+        this.cards = Array.from(container.querySelectorAll('.ImgCard'))
 
         // Carousel data
         this.centerIndex = (this.cards.length - 1) / 2
@@ -345,30 +345,34 @@ export default function FrontPageCarousel() {
     >
       <div className="row d-flex justify-content-center">
         <div className="col-4 text-center">
-          <h2 className="display-4 lxgw-wenkai-mono-tc-bold title">餐點介紹</h2>
-          <div className="text-center">1234</div>
+          <h2 className="display-4 lxgw-wenkai-mono-tc-bold frontTitle">
+            餐點介紹
+          </h2>
+          <div className="text-center frontTitle text-dark ">
+            我們餐廳提供豐富多樣的美食選擇，從精緻的開胃小菜到美味的主菜和甜品，每道菜品均選用新鮮食材，精心烹製。無論是傳統風味還是創新料理，都能滿足您的味蕾。邀請您來享受一場美食盛宴。
+          </div>
         </div>
         <div className="col-8">
           <div className="container-fluid d-flex justify-content-center position-relative">
             <div className="container lxgw-wenkai-mono-tc-regular">
               <div ref={cardsContainerRef} className="cardCarousel">
-                <div className="card" id="1">
+                <div className="ImgCard" id="1">
                   <div className="imageContainer"></div>
                   <button className="carouselBtn">查看菜單</button>
                 </div>
-                <div className="card" id="2">
+                <div className="ImgCard" id="2">
                   <div className="imageContainer"></div>
                   <button className="carouselBtn">查看菜單</button>
                 </div>
-                <div className="card" id="3">
+                <div className="ImgCard" id="3">
                   <div className="imageContainer"></div>
                   <button className="carouselBtn">查看菜單</button>
                 </div>
-                <div className="card" id="4">
+                <div className="ImgCard" id="4">
                   <div className="imageContainer"></div>
                   <button className="carouselBtn">查看菜單</button>
                 </div>
-                <div className="card" id="5">
+                <div className="ImgCard" id="5">
                   <div className="imageContainer"></div>
                   <button className="carouselBtn">查看菜單</button>
                 </div>

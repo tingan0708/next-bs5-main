@@ -208,11 +208,11 @@ section {
   transition: 0.3s;
 }
 
-.title {
+.frontTitle {
   padding-left: 200px;
 }
 
-.title2 {
+.frontTitle2 {
   text-align: center;
 }
 
@@ -257,7 +257,7 @@ section {
   transition: all 0.2s ease;
 }
 
-.cardCarousel .card {
+.cardCarousel .ImgCard {
   background: whitesmoke;
   width: var(--card-width);
   max-width: var(--card-max-width);
@@ -280,33 +280,33 @@ section {
   justify-content: center;
 }
 
-.card.highlight {
+.ImgCard.highlight {
   filter: brightness(1);
 }
 
-.card:nth-of-type(1) {
+.ImgCard:nth-of-type(1) {
   background-image: url('/images/mudanlow-小圖檔/DSC00596.jpg');
   background-size: cover;
   background-position: center;
 }
 
-.card:nth-of-type(2) {
+.ImgCard:nth-of-type(2) {
   background-image: url('/images/mudanlow-小圖檔/DSC00598.jpg');
   background-size: cover;
   background-position: center;
 }
 
-.card:nth-of-type(3) {
+.ImgCard:nth-of-type(3) {
   background-image: url('/images/mudanlow-小圖檔/DSC00578.jpg');
   background-size: cover;
   background-position: center;
 }
-.card:nth-of-type(4) {
+.ImgCard:nth-of-type(4) {
   background-image: url('/images/mudanlow-小圖檔/DSC00719.jpg');
   background-size: cover;
   background-position: center;
 }
-.card:nth-of-type(5) {
+.ImgCard:nth-of-type(5) {
   background-image: url('/images/mudanlow-小圖檔/DSC00626.jpg');
   background-size: cover;
   background-position: center;
