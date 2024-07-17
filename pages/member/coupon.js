@@ -8,6 +8,8 @@ import { IoTicketOutline } from 'react-icons/io5'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Collapse from 'react-bootstrap/Collapse'
+import Navbar from '@/components/layout/mudanlow-layout/navbar-login'
+import Footer from '@/components/layout/mudanlow-layout/footer'
 
 const initUserProfile = {
   name: '',
@@ -115,61 +117,72 @@ export default function Coupon() {
 
   return (
     <>
-      <MemberNavbar />
-      <Container fluid className="member-profile-container">
-        <h2 className="text-center mb-4 ">折價卷查詢</h2>
-        <div className="row ">
-          {coupons.length > 0 ? (
-            coupons.map((v, i) => {
-              return (
-                <div key={i} className="col-12 d-flex justify-content-center align-items-center mb-3 ">
-                  <div className="couponsBg">
-                    <div className="coupons">
-                      <img alt="" className="logo" src="/logo-gold.png" />
-                      <div className="couponsCard">
-                        <div>電子折價卷</div>
-                        <div>
-                          折價
-                          <span className="money">
-                            {v.coupons_sample_price}元
-                          </span>
+      <Navbar />
+      <div className="container cPage my-5">
+        <MemberNavbar />
+        <Container fluid className="member-profile-container">
+          <h2 className="text-center mb-4 ">折價卷查詢</h2>
+          <div className="row ">
+            {coupons.length > 0 ? (
+              coupons.map((v, i) => {
+                return (
+                  <div
+                    key={i}
+                    className="col-12 d-flex justify-content-center align-items-center mb-3 "
+                  >
+                    <div className="couponsBg">
+                      <div className="coupons">
+                        <img
+                          alt=""
+                          className="logo"
+                          src="/pics/logo-gold.png"
+                        />
+                        <div className="couponsCard">
+                          <div>電子折價卷</div>
+                          <div>
+                            折價
+                            <span className="money">
+                              {v.coupons_sample_price}元
+                            </span>
+                          </div>
+                          {new Date(v.coupons_maxAge) < new Date() ? (
+                            <div className="coupon_world">
+                              <FaExclamationTriangle />
+                              折價卷已過期，無法使用
+                            </div>
+                          ) : (
+                            ''
+                          )}
+                          {v.car_id == 1 ? (
+                            <div className="coupon_world">
+                              {' '}
+                              <IoTicketOutline />
+                              折價卷已使用
+                            </div>
+                          ) : (
+                            ''
+                          )}
+                          {/* <div className="coupon_world">折價卷已使用</div> */}
                         </div>
-                        {new Date(v.coupons_maxAge) < new Date() ? (
-                          <div className="coupon_world">
-                            <FaExclamationTriangle />
-                            折價卷已過期，無法使用
-                          </div>
-                        ) : (
-                          ''
-                        )}
-                        {v.car_id !== null ? (
-                          <div className="coupon_world">
-                            {' '}
-                            <IoTicketOutline />
-                            折價卷已使用
-                          </div>
-                        ) : (
-                          ''
-                        )}
-                        {/* <div className="coupon_world">折價卷已使用</div> */}
-                      </div>
-                      <div className="limit">
-                        使用期限: {v.coupons_sentDate} ~ {v.coupons_maxAge} 止
-                      </div>
-                      <div className="limit">
-                        使用限制:
-                        消費金額需滿額1000元以上即可使用，限線上購物使用。
+                        <div className="limit">
+                          使用期限: {v.coupons_sentDate} ~ {v.coupons_maxAge} 止
+                        </div>
+                        <div className="limit">
+                          使用限制:
+                          消費金額需滿額1000元以上即可使用，限線上購物使用。
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              )
-            })
-          ) : (
-            <div>{message}</div>
-          )}
-        </div>
-      </Container>
+                )
+              })
+            ) : (
+              <div>{message}</div>
+            )}
+          </div>
+        </Container>
+      </div>
+      <Footer />
       <style>{`
       {/*  動畫  */}
       .member-profile-container {
@@ -269,6 +282,7 @@ export default function Coupon() {
           }
 
           .member-profile-container {
+          height:50vh;
             max-width: 31rem; 
             margin: 0 auto; 
             border:1px solid #ccc;
@@ -279,6 +293,9 @@ export default function Coupon() {
 `}</style>
       <style jsx>
         {`
+          .cPage {
+            height: 100%;
+          }
           .couponsBg {
             width: 300px;
             background: #4a9c7a56;
@@ -287,7 +304,7 @@ export default function Coupon() {
           .coupons {
             text-align: center;
           }
-          .couponsBg:hover{
+          .couponsBg:hover {
             width: 310px;
           }
           .logo {
@@ -320,7 +337,7 @@ export default function Coupon() {
           .open {
             display: block;
           }
-          
+
           @media screen and (max-width: 768px) {
             .couponsBg {
               width: 200px;

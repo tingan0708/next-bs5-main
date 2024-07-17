@@ -59,7 +59,7 @@ export default function NewsList() {
       <div className="container-fluid">
         <div className="position-relative">
           <button className="btn btn-success back-btn">
-            <a href="/mudanlow">回上頁</a>
+            <Link href="/">回上頁</Link>
           </button>
           <div className="row justify-content-center text-center keyword-title">
             <div className="col-4">

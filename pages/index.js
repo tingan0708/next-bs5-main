@@ -8,6 +8,7 @@ import Footer from '@/components/layout/mudanlow-layout/footer'
 import FrontPageCarousel from '@/components/mudanlow/frontpage/carousel'
 import MessageBoard from '@/components/mudanlow/frontpage/messageboard'
 import Link from 'next/link'
+import News from '@/components/mudanlow/frontpage/news'
 
 export default function MudanlowIndex() {
   return (
@@ -64,61 +65,7 @@ export default function MudanlowIndex() {
         id="trending-products"
         className="news-section background2 position-relative"
       >
-        <div className="container-fluid ">
-          <div className="row overflow-hidden">
-            <div className="display-header pb-3 col-md-12">
-              <h2 className="display-4 lxgw-wenkai-mono-tc-bold frontTitle">
-                最新消息
-              </h2>
-              {/* <!--put your content inside--> */}
-            </div>
-            <div className="container-fluid d-flex justify-content-center my-3 newsSection">
-              <div className="news p-4 bg-light m-3">
-                <div className="border-bottom border-dark">
-                  <h1 className="lxgw-wenkai-mono-tc-regular">最新消息</h1>
-                </div>
-                <div className="bg-light">
-                  <ul className="list-unstyled">
-                    <li className="newsList">
-                      <div className="border-bottom border-dark row align-items-center py-3 list">
-                        <div className="col-4 ">
-                          <div className="text-secondary ">date</div>
-                          <div className="fw-bolder ">title</div>
-                        </div>
-                        <div className="col-7 ">content</div>
-                        <div className="col-1 ">
-                          <Link
-                            href="/mudanlow/news/news-list"
-                            title="查看文章"
-                          >
-                            <div className="news-arrow">
-                              <FontAwesomeIcon
-                                icon={faChevronRight}
-                                className="news-arrow"
-                                height={30}
-                              />
-                            </div>
-                          </Link>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div className="position-relative p-2">
-                  <nav className="buttons position-absolute bottom-0 end-0">
-                    <Link
-                      className="more-btn"
-                      href="/mudanlow/news/news-list"
-                      data-button="more"
-                    >
-                      MORE...
-                    </Link>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <News />
         <div>
           <Image
             src="pics/background-pic1 (1).png"

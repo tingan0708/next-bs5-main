@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAnglesDown } from '@fortawesome/free-solid-svg-icons'
+import animate from 'animate.css'
 
 export default function FirstPicture() {
   const aboutUsRef = useRef(null)

@@ -5,11 +5,12 @@ import Navbar from '@/components/layout/mudanlow-layout/navbar'
 
 export default function NewsContent() {
   const [article, setArticle] = useState(null)
+  const [articleIds, setArticleIds] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const router = useRouter()
   const { a_id } = router.query
-  const imageBaseUrl = 'http://localhost:3005/public/img/'
+  const imageBaseUrl = 'http://localhost:3005/img/'
 
   useEffect(() => {
     const fetchArticle = async () => {
@@ -35,6 +36,32 @@ export default function NewsContent() {
 
     fetchArticle()
   }, [a_id])
+
+  useEffect(() => {
+    const fetchArticleIds = async () => {
+      try {
+        const response = await fetch(`http://localhost:3005/api/articles/api`)
+        const data = await response.json()
+        if (data.success) {
+          setArticleIds(data.rows.map((article) => article.a_id))
+        } else {
+          setError('無法獲取文章列表')
+        }
+      } catch (error) {
+        setError('無法獲取文章列表')
+      }
+    }
+
+    fetchArticleIds()
+  }, [])
+
+  const NextArticle = () => {
+    if (articleIds.length > 0) {
+      const currentIndex = articleIds.findIndex((id) => id === parseInt(a_id))
+      const nextIndex = (currentIndex + 1) % articleIds.length
+      router.push(`/mudanlow/news/${articleIds[nextIndex]}`)
+    }
+  }
 
   if (error) {
     return (
@@ -71,6 +98,19 @@ export default function NewsContent() {
       </>
     )
   }
+
+  let imageSrc = ''
+  if (article.photos) {
+    try {
+      const photosArray = JSON.parse(article.photos)
+      if (photosArray.length > 0) {
+        imageSrc = `${imageBaseUrl}${photosArray[0]}`
+      }
+    } catch (error) {
+      console.error('Error parsing photos:', error)
+    }
+  }
+
   return (
     <>
       <Navbar />
@@ -81,9 +121,9 @@ export default function NewsContent() {
           <div className="newsMain d-flex justify-content-evenly">
             <div className="newsContent">
               <div className="newsTitle">{article.title}</div>
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-center insideContent">
                 <div className="newsContentPic">
-                  <img src={`${imageBaseUrl}${article.photos}`} alt="" />
+                  {imageSrc && <img src={imageSrc} alt="Article Image" />}
                   <div className="line1" />
                   <div className="line2" />
                   <div className="date">{article.date}</div>
@@ -95,7 +135,9 @@ export default function NewsContent() {
               <div className="d-flex justify-content-between align-items-center other">
                 <div className="share">分享至:</div>
                 <div className="nextPage">
-                  <button className="nextPageBtn">下一頁</button>
+                  <button className="nextPageBtn" onClick={NextArticle}>
+                    下一頁
+                  </button>
                 </div>
               </div>
             </div>
@@ -199,10 +241,9 @@ export default function NewsContent() {
           font-size: 18px;
         }
         .contentInside {
-          margin-left: 50px;
           margin-top: 70px;
           height: 500px;
-          font-size: 24px;
+          font-size: 18px;
         }
 
         .nextPageBtn {
@@ -213,6 +254,10 @@ export default function NewsContent() {
 
         .share {
           color: #000;
+        }
+
+        .insideContent {
+          height: 75%;
         }
       `}</style>
     </>
