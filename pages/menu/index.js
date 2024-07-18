@@ -8,10 +8,12 @@ import Cooker from '@/components/menu/cooker'
 import animate from 'animate.css'
 import Navbar from '@/components/layout/mudanlow-layout/navbar'
 import Footer from '@/components/layout/mudanlow-layout/footer'
+import Mymasonry from '@/components/menu/mymasonry'
 
 export default function IndexTest() {
   return (
     <MudanlowLayout>
+      <Mymasonry />
       <div className="container menu mt-5 mb-5">
         <MenuNav />
         <div className="row align-items-center text-center g-2">
@@ -26,7 +28,7 @@ export default function IndexTest() {
               style={{ margin: 'auto', marginBottom: '0.5rem' }}
             >
               <Image
-                src="/menuCard/menuCard-one.jpg"
+                src="/menuCard/menuCard-one.webp"
                 className="card-img-top"
                 width={268}
                 height={190}
@@ -58,7 +60,7 @@ export default function IndexTest() {
               style={{ margin: 'auto', marginBottom: '0.5rem' }}
             >
               <Image
-                src="/menuCard/menuCard-combo.jpeg"
+                src="/menuCard/menuCard-combo.webp"
                 className="card-img-top"
                 width={268}
                 height={190}
@@ -90,7 +92,7 @@ export default function IndexTest() {
               style={{ margin: 'auto', marginBottom: '0.5rem' }}
             >
               <Image
-                src="/menuCard/menuCard-bento.jpg"
+                src="/menuCard/menuCard-bento.webp"
                 className="card-img-top"
                 width={268}
                 height={190}
@@ -122,7 +124,7 @@ export default function IndexTest() {
               style={{ margin: 'auto', marginBottom: '0.5rem' }}
             >
               <Image
-                src="/menuCard/menuCard-cake.jpg"
+                src="/menuCard/menuCard-cake.webp"
                 className="card-img-top"
                 width={268}
                 height={190}
@@ -155,7 +157,7 @@ export default function IndexTest() {
               style={{ margin: 'auto', marginBottom: '0.5rem' }}
             >
               <Image
-                src="/menuCard/menuCard-drinks.jpg"
+                src="/menuCard/menuCard-drinks.webp"
                 className="card-img-top"
                 width={268}
                 height={190}
@@ -187,7 +189,7 @@ export default function IndexTest() {
               style={{ margin: 'auto', marginBottom: '0.5rem' }}
             >
               <Image
-                src="/menuCard/menuCard-18+.jpg"
+                src="/menuCard/menuCard-18+.webp"
                 className="card-img-top"
                 width={268}
                 height={190}

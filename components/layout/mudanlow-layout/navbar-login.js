@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 
-export default function Navbar() {
+export default function NavbarLogin() {
   const [isCanvasActive, setIsCanvasActive] = useState(false)
   const [isDropdownActive, setIsDropdownActive] = useState(false)
 
@@ -27,22 +27,26 @@ export default function Navbar() {
     <>
       <div className={styles.stickyNavbar}>
         <div className="d-flex">
-          <a href="/" data-nav-section="frontpage" className={styles.navLink}>
+          <Link
+            href="/"
+            data-nav-section="frontpage"
+            className={styles.navLink}
+          >
             主頁
-          </a>
+          </Link>
           <div className={styles.navItem}>
             <a href="#" data-nav-section="about" className={styles.navLink}>
               關於我們
             </a>
             <div className={styles.dropdownContent}>
-              <a href="/mudanlow/about-us/introduce">區域介紹</a>
-              <a href="/mudanlow/news/news-list">最新消息</a>
-              <a href="/mudanlow/about-us/hire">人才招募</a>
+              <Link href="/mudanlow/about-us/introduce">區域介紹</Link>
+              <Link href="/mudanlow/news/news-list">最新消息</Link>
+              <Link href="/mudanlow/about-us/hire">人才招募</Link>
             </div>
           </div>
-          <a href="/menu" data-nav-section="menu" className={styles.navLink}>
+          <Link href="/menu" data-nav-section="menu" className={styles.navLink}>
             菜單
-          </a>
+          </Link>
           <a href="#" data-nav-section="shopping" className={styles.navLink}>
             購物專區
           </a>

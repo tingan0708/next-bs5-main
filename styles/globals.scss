@@ -69,4 +69,11 @@ body {
   padding: 1rem;
 }
 
+a {
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  text-decoration: none;
+}
+
 // below is test only

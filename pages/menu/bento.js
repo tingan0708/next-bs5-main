@@ -33,10 +33,16 @@ export default function Bento() {
     if (galleryRef.current && bento.rows.length > 0) {
       lightGallery(galleryRef.current, {
         plugins: [lgZoom],
-        licenseKey: 'YOUR_LICENSE_KEY',
-        speed: 500,
-        zoom: true,
-        selector: 'a',
+        licenseKey: 'YOUR_LICENSE_KEY', // 如果有license key的話，這裡需要填入
+        speed: 300,
+        zoom: true, // 確保啟用了縮放功能
+        selector: 'a', // 確保選中所有圖片鏈接
+        mode: 'lg-fade', // 使用更簡單的動畫模式
+        download: true, // 禁用下載按鈕（如果不需要）
+        thumbnail: true, // 啟用縮略圖
+        autoplay: false, // 禁用自動播放
+        thumbWidth: 100, // 縮略圖寬度
+        thumbContHeight: 100, // 縮略圖容器高度
       })
     }
   }, [bento])
@@ -70,7 +76,7 @@ export default function Bento() {
                 <ScrollMotionItem
                   element="div"
                   key={v.id}
-                  className="col-lg-4 col-md-6 col-sm-12"
+                  className="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center"
                   type="right"
                   viewport={{ once: false, amount: 0.5 }}
                   variants={{
@@ -134,7 +140,7 @@ export default function Bento() {
             height: 100%;
             display: flex;
             justify-content: center;
-            background-image: url(/menuCard/menu-ben-L1.jpg);
+            background-image: url(/menuCard/menu-ben-L1.webp);
             background-repeat: no-repeat;
             background-size: cover;
           }
@@ -144,7 +150,7 @@ export default function Bento() {
               height: 100%;
               display: flex;
               justify-content: center;
-              background-image: url(/menuCard/menu-ben-m.jpg);
+              background-image: url(/menuCard/menu-ben-m.webp);
               background-repeat: no-repeat;
               background-size: cover;
             }
@@ -162,7 +168,7 @@ export default function Bento() {
               height: 100%;
               display: flex;
               justify-content: center;
-              background-image: url(/menuCard/menu-ben-m.jpg);
+              background-image: url(/menuCard/menu-ben-m.webp);
               background-repeat: no-repeat;
               background-size: contain;
             }
@@ -212,7 +218,7 @@ export default function Bento() {
             display: block;
             width: 4rem;
             height: 1.25rem;
-            background-color: bisque;
+            background-color: #f1f15eed;
             text-align: center;
             border-radius: 4px;
           }

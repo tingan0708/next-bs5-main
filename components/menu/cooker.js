@@ -40,6 +40,8 @@ export default function Cooker() {
           @media screen and (max-width: 768px) {
             .tilt-image {
               height: 5.5rem;
+              left: 0.5rem;
+              margin: 0;
             }
           }
         `}

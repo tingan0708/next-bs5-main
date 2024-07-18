@@ -8,7 +8,7 @@ import { IoTicketOutline } from 'react-icons/io5'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Collapse from 'react-bootstrap/Collapse'
-import Navbar from '@/components/layout/mudanlow-layout/navbar-login'
+import NavbarLogin from '@/components/layout/mudanlow-layout/navbar-login'
 import Footer from '@/components/layout/mudanlow-layout/footer'
 
 const initUserProfile = {
@@ -117,7 +117,7 @@ export default function Coupon() {
 
   return (
     <>
-      <Navbar />
+      <NavbarLogin />
       <div className="container cPage my-5">
         <MemberNavbar />
         <Container fluid className="member-profile-container">

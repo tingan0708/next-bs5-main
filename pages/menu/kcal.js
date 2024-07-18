@@ -13,34 +13,34 @@ export default function Kcal() {
 
   const menus = {
     one: [
-      { img: '/menu-d/one/1.jpg', calories: 791, pname: '經典三杯雞' },
-      { img: '/menu-d/one/2.jpg', calories: 620, pname: '本幫紅燒肉' },
-      { img: '/menu-d/one/4.jpg', calories: 884, pname: '宮保雞丁' },
-      { img: '/menu-d/one/5.jpg', calories: 200, pname: '麻辣擔擔醬熱豆花' },
-      { img: '/menu-d/one/6.jpg', calories: 260, pname: '草蝦匯時蔬' },
-      { img: '/menu-d/one/7.jpg', calories: 452, pname: '避風塘炒大蝦' },
-      { img: '/menu-d/one/8.jpg', calories: 760, pname: '臘味雙寶炒飯' },
-      { img: '/menu-d/one/11.jpg', calories: 312, pname: '家常炒肉絲' },
+      { img: '/menu-d/one/1.webp', calories: 791, pname: '經典三杯雞' },
+      { img: '/menu-d/one/2.webp', calories: 620, pname: '本幫紅燒肉' },
+      { img: '/menu-d/one/4.webp', calories: 884, pname: '宮保雞丁' },
+      { img: '/menu-d/one/5.webp', calories: 200, pname: '麻辣擔擔醬熱豆花' },
+      { img: '/menu-d/one/6.webp', calories: 260, pname: '草蝦匯時蔬' },
+      { img: '/menu-d/one/7.webp', calories: 452, pname: '避風塘炒大蝦' },
+      { img: '/menu-d/one/8.webp', calories: 760, pname: '臘味雙寶炒飯' },
+      { img: '/menu-d/one/11.webp', calories: 312, pname: '家常炒肉絲' },
     ],
     one2: [
-      { img: '/menu-d/one/12.jpg', calories: 412, pname: '爐烤叉燒牛肋條' },
-      { img: '/menu-d/one/14.jpg', calories: 310, pname: '招牌功夫雞' },
-      { img: '/menu-d/one/15.jpg', calories: 659, pname: '乾鍋川味辣炒羊肉' },
-      { img: '/menu-d/one/16.jpg', calories: 218, pname: '當日季節時蔬' },
-      { img: '/menu-d/one/17.jpg', calories: 240, pname: '菌菇檸檬蝦' },
-      { img: '/menu-d/one/18.jpg', calories: 280, pname: '川味剁椒草蝦' },
-      { img: '/menu-d/one/19.jpg', calories: 784, pname: '招牌糖醋魚' },
-      { img: '/menu-d/one/20.jpg', calories: 880, pname: '招牌脆皮豬五花' },
+      { img: '/menu-d/one/12.webp', calories: 412, pname: '爐烤叉燒牛肋條' },
+      { img: '/menu-d/one/14.webp', calories: 310, pname: '招牌功夫雞' },
+      { img: '/menu-d/one/15.webp', calories: 659, pname: '乾鍋川味辣炒羊肉' },
+      { img: '/menu-d/one/16.webp', calories: 218, pname: '當日季節時蔬' },
+      { img: '/menu-d/one/17.webp', calories: 240, pname: '菌菇檸檬蝦' },
+      { img: '/menu-d/one/18.webp', calories: 280, pname: '川味剁椒草蝦' },
+      { img: '/menu-d/one/19.webp', calories: 784, pname: '招牌糖醋魚' },
+      { img: '/menu-d/one/20.webp', calories: 880, pname: '招牌脆皮豬五花' },
     ],
     one3: [
-      { img: '/menu-d/dessert/1.jpg', calories: 308, pname: '經典提拉米蘇' },
-      { img: '/menu-d/dessert/3.jpg', calories: 267, pname: '焦糖伯爵蛋糕' },
-      { img: '/menu-d/dessert/4.jpg', calories: 192, pname: '一口泡芙' },
-      { img: '/menu-d/dessert/5.jpg', calories: 228, pname: '生巧克力蛋糕' },
-      { img: '/menu-d/dessert/6.jpg', calories: 0, pname: '熱伯爵茶' },
-      { img: '/menu-d/dessert/7.jpg', calories: 292, pname: '拿鐵咖啡' },
-      { img: '/menu-d/dessert/8.jpg', calories: 292, pname: '美式咖啡' },
-      { img: '/menu-d/dessert/9.jpg', calories: 260, pname: '特調奶茶' },
+      { img: '/menu-d/dessert/1.webp', calories: 308, pname: '經典提拉米蘇' },
+      { img: '/menu-d/dessert/3.webp', calories: 267, pname: '焦糖伯爵蛋糕' },
+      { img: '/menu-d/dessert/4.webp', calories: 192, pname: '一口泡芙' },
+      { img: '/menu-d/dessert/5.webp', calories: 228, pname: '生巧克力蛋糕' },
+      { img: '/menu-d/dessert/6.webp', calories: 0, pname: '熱伯爵茶' },
+      { img: '/menu-d/dessert/7.webp', calories: 292, pname: '拿鐵咖啡' },
+      { img: '/menu-d/dessert/8.webp', calories: 292, pname: '美式咖啡' },
+      { img: '/menu-d/dessert/9.webp', calories: 260, pname: '特調奶茶' },
     ],
   }
 
@@ -269,7 +269,7 @@ export default function Kcal() {
         width: 400px;
         height: 400px;
         border-radius: 50%;
-        background-image: url(/menu-d/fabric.jpg);
+        background-image: url(/menu-d/fabric.webp);
         top: 104%;
         left: 50%;
         transform: translate(-50%, -46%);
@@ -349,42 +349,42 @@ export default function Kcal() {
         transform: translate(-50%, -50%);
       }
        .img1 {
-        background-image: url(/menu-d/one/1.jpg);
+        background-image: url(/menu-d/one/1.webp);
         background-position: center;
         background-repeat: no-repeat;
       }
       .img2 {
-        background-image: url(/menu-d/one/2.jpg);
+        background-image: url(/menu-d/one/2.webp);
         background-position: center;
         background-repeat: no-repeat;
       }
       .img3 {
-        background-image: url(/menu-d/one/4.jpg);
+        background-image: url(/menu-d/one/4.webp);
         background-position: center;
         background-repeat: no-repeat;
       }
       .img4 {
-        background-image: url(/menu-d/one/5.jpg);
+        background-image: url(/menu-d/one/5.webp);
         background-position: center;
         background-repeat: no-repeat;
       }
       .img5 {
-        background-image: url(/menu-d/one/6.jpg);
+        background-image: url(/menu-d/one/6.webp);
         background-position: center;
         background-repeat: no-repeat;
       }
       .img6 {
-        background-image: url(/menu-d/one/7.jpg);
+        background-image: url(/menu-d/one/7.webp);
         background-position: center;
         background-repeat: no-repeat;
       }
       .img7 {
-        background-image: url(/menu-d/one/8.jpg);
+        background-image: url(/menu-d/one/8.webp);
         background-position: center;
         background-repeat: no-repeat;
       }
       .img8 {
-        background-image: url(/menu-d/one/11.jpg);
+        background-image: url(/menu-d/one/11.webp);
         background-position: center;
         background-repeat: no-repeat;
       }

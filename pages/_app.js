@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import 'rsuite/dist/rsuite.min.css' // 引入 React Suite 的 CSS 文件
 // 樣式
 import '@/styles/globals.scss'
 import '@/styles/product.scss'

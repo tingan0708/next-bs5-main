@@ -60,9 +60,13 @@ export default function Navbar() {
           </a>
         </div>
         <div className="d-flex">
-          <a href="#" data-nav-section="reservation" className={styles.navLink}>
+          <Link
+            href="/ReservationRules"
+            data-nav-section="reservation"
+            className={styles.navLink}
+          >
             立即預約
-          </a>
+          </Link>
           <Link
             href="/member/profile"
             data-nav-section="order"
