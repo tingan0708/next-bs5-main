@@ -4,10 +4,15 @@ import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
+import { logout } from '@/services/user'
+import toast, { Toaster } from 'react-hot-toast'
+import { initUserData, useAuth } from '@/hooks/use-auth'
 
 export default function NavbarLogin() {
   const [isCanvasActive, setIsCanvasActive] = useState(false)
   const [isDropdownActive, setIsDropdownActive] = useState(false)
+
+  const { setAuth } = useAuth()
 
   const toggleCanvas = () => {
     setIsCanvasActive(!isCanvasActive)
@@ -23,6 +28,28 @@ export default function NavbarLogin() {
       action()
     }
   }
+
+  // 處理登出
+  const handleLogout = async (e) => {
+    e.preventDefault()
+    const res = await logout()
+    console.log('Logout Response:', res.data)
+
+    console.log(res.data)
+
+    // 成功登出個回復初始會員狀態
+    if (res.data.status === 'success') {
+      toast.success('已成功登出')
+
+      setAuth({
+        isAuth: false,
+        userData: initUserData,
+      })
+    } else {
+      toast.error(`登出失敗`)
+    }
+  }
+
   return (
     <>
       <div className={styles.stickyNavbar}>
@@ -47,9 +74,13 @@ export default function NavbarLogin() {
           <Link href="/menu" data-nav-section="menu" className={styles.navLink}>
             菜單
           </Link>
-          <a href="#" data-nav-section="shopping" className={styles.navLink}>
+          <Link
+            href="/product"
+            data-nav-section="shopping"
+            className={styles.navLink}
+          >
             購物專區
-          </a>
+          </Link>
         </div>
         <div className="logo-link">
           <a href="#" data-nav-section="home">
@@ -78,7 +109,8 @@ export default function NavbarLogin() {
             會員專區
           </Link>
           <Link
-            href="/member/login"
+            onClick={handleLogout}
+            href="/"
             data-nav-section="login"
             className={styles.navLink}
           >
@@ -179,16 +211,17 @@ export default function NavbarLogin() {
           </li>
           <li>
             <a href="#" className={styles.canvasLink}>
-              註冊
+              會員專區
             </a>
           </li>
           <li>
             <a href="#" className={styles.canvasLink}>
-              登入
+              登出
             </a>
           </li>
         </ul>
       </div>
+      <Toaster />
     </>
   )
 }

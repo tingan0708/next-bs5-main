@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './member.module.css'
 import Link from 'next/link'
 import { initUserData, useAuth } from '@/hooks/use-auth'
@@ -8,6 +8,7 @@ import { useRouter } from 'next/router'
 import GoogleLoginPopup from './google-login'
 import LineLogin from './line-login'
 import Navbar from '../layout/mudanlow-layout/navbar'
+import NavbarLogin from '../layout/mudanlow-layout/navbar-login'
 import Footer from '../layout/mudanlow-layout/footer'
 
 const parseJwt = (token) => {
@@ -18,7 +19,7 @@ const parseJwt = (token) => {
 
 export default function LoginForm() {
   const [user, setUser] = useState({ username: '', password: '' })
-  const { setAuth } = useAuth()
+  const { isAuth, setAuth, userData } = useAuth()
   const router = useRouter()
   const [errors, setErrors] = useState({ username: '', password: '' })
   const [showPassword, setShowPassword] = useState(false)
@@ -89,7 +90,7 @@ export default function LoginForm() {
 
   return (
     <>
-      <Navbar />
+      {isAuth ? <NavbarLogin /> : <Navbar />}
       <main className={`form-member w-100 m-auto text-center`}>
         <h2 className="text-center mb-5">會員登入</h2>
         <form onSubmit={handleSubmit}>

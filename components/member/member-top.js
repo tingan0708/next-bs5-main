@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useAuth } from '@/hooks/use-auth'
 import toast from 'react-hot-toast'
 import { getUserById } from '@/services/user'
-import MemberImage from '../user-test/member-image'
+import MemberImage from '../user-test/preview-upload-image'
 import { avatarBaseUrl } from '@/configs'
 
 const initUserProfile = {
@@ -46,10 +46,10 @@ export default function MemberTop() {
 
   return (
     <>
-        <MemberImage
-          avatarImg={userProfile.avatar}
-          avatarBaseUrl={avatarBaseUrl}
-        />
+      <MemberImage
+        avatarImg={userProfile.avatar}
+        avatarBaseUrl={avatarBaseUrl}
+      />
     </>
   )
 }

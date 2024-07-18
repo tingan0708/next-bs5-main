@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import styles from './messageboard.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 export default function MessageBoard() {
+  const [rating, setRating] = useState(0)
+  const [hoverRating, setHoverRating] = useState(0)
   const [formData, setFormData] = useState({ value: '', content: '' })
   const [comments, setComments] = useState([])
   const maxZIndex = 1
   const maxHeight = 400 // 限制生成位置的最大高度
   const minHeight = 100 // 限
 
-  const handleChange = (e) => {
+  const handleRatingChange = (e) => {
+    setRating(Number(e.target.value))
+  }
+
+  const handleInputChange = (e) => {
     const { name, value } = e.target
     setFormData({ ...formData, [name]: value })
   }
@@ -18,7 +25,7 @@ export default function MessageBoard() {
     e.preventDefault()
 
     const fd = new FormData()
-    fd.append('value', formData.value)
+    fd.append('value', rating)
     fd.append('content', formData.content)
 
     fetch('http://localhost:3005/api/message-board/add', {
@@ -68,6 +75,7 @@ export default function MessageBoard() {
     const left = Math.random() * (window.innerWidth - 200) // 減去每個留言的寬度以防止超出視窗
     return { top, left }
   }
+
   const handleDragStart = (e, index) => {
     e.dataTransfer.setData('text/plain', index)
   }
@@ -107,19 +115,33 @@ export default function MessageBoard() {
             <form id="message" onSubmit={sendData}>
               <h4>評分:</h4>
               <div className={styles.score}>
-                {[5, 4, 3, 2, 1].map((score) => (
+                {[1, 2, 3, 4, 5].map((score) => (
                   <React.Fragment key={score}>
                     <input
                       type="radio"
                       name="value"
                       id={`score${score}`}
                       value={score}
-                      onChange={handleChange}
+                      onChange={handleRatingChange}
+                      className={styles.radioInput}
                     />
                     <label
                       className={styles.star}
                       htmlFor={`score${score}`}
-                    ></label>
+                      onMouseEnter={() => setHoverRating(score)}
+                      onMouseLeave={() => setHoverRating(0)}
+                    >
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        style={{
+                          color:
+                            hoverRating >= score || rating >= score
+                              ? '#FFD43B'
+                              : '#dcdcdc',
+                        }}
+                        height={30}
+                      />
+                    </label>
                   </React.Fragment>
                 ))}
               </div>
@@ -133,7 +155,7 @@ export default function MessageBoard() {
                   name="content"
                   rows="5"
                   value={formData.content}
-                  onChange={handleChange}
+                  onChange={handleInputChange}
                 ></textarea>
               </div>
               <button className="btn btn-light" type="submit">
@@ -159,9 +181,12 @@ export default function MessageBoard() {
             <label className="text-light">評分:</label>
             <div className={`${styles.commentStar} text-center`}>
               {[1, 2, 3, 4, 5].map((i) => (
-                <label className={styles.star} key={i}>
-                  {i <= comment.value ? '★' : '☆'}
-                </label>
+                <FontAwesomeIcon
+                  icon={faStar}
+                  key={i}
+                  style={{ color: i <= comment.value ? '#FFD43B' : '#dcdcdc' }}
+                  height={30}
+                />
               ))}
             </div>
             <label className="text-light">內容:</label>

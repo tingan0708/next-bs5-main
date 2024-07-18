@@ -27,9 +27,13 @@ export default function Navbar() {
     <>
       <div className={styles.stickyNavbar}>
         <div className="d-flex">
-          <a href="/" data-nav-section="frontpage" className={styles.navLink}>
+          <Link
+            href="/"
+            data-nav-section="frontpage"
+            className={styles.navLink}
+          >
             主頁
-          </a>
+          </Link>
           <div className={styles.navItem}>
             <a href="#" data-nav-section="about" className={styles.navLink}>
               關於我們
@@ -40,12 +44,16 @@ export default function Navbar() {
               <Link href="/mudanlow/about-us/hire">人才招募</Link>
             </div>
           </div>
-          <a href="/menu" data-nav-section="menu" className={styles.navLink}>
+          <Link href="/menu" data-nav-section="menu" className={styles.navLink}>
             菜單
-          </a>
-          <a href="#" data-nav-section="shopping" className={styles.navLink}>
+          </Link>
+          <Link
+            href="/product"
+            data-nav-section="shopping"
+            className={styles.navLink}
+          >
             購物專區
-          </a>
+          </Link>
         </div>
         <div className="logo-link">
           <a href="#" data-nav-section="home">
@@ -113,12 +121,12 @@ export default function Navbar() {
       >
         <ul>
           <li>
-            <a href="#" className={styles.canvasLink}>
+            <Link href="/" className={styles.canvasLink}>
               <div>主頁</div>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="#"
               className={`${styles.canvasLink} ${
                 isDropdownActive ? styles.open : ''
@@ -141,7 +149,7 @@ export default function Navbar() {
                   className={styles.faCaretDown}
                 />
               </div>
-            </a>
+            </Link>
             <div
               className={`${styles.dropdown} ${
                 isDropdownActive ? styles.show : ''
@@ -150,46 +158,46 @@ export default function Navbar() {
             >
               <ul className="dropdown-item">
                 <li className={styles.dropdownLink}>
-                  <a href="#">區域介紹</a>
+                  <Link href="/mudanlow/about-us/introduce">區域介紹</Link>
                 </li>
                 <li className={styles.dropdownLink}>
-                  <a href="#">最新消息</a>
+                  <Link href="/mudanlow/news/news-list">最新消息</Link>
                 </li>
                 <li className={styles.dropdownLink}>
-                  <a href="#">人才招募</a>
+                  <Link href="/mudanlow/about-us/hire">人才招募</Link>
                 </li>
               </ul>
             </div>
           </li>
           <li>
-            <a href="#" className={styles.canvasLink}>
+            <Link href="/menu" className={styles.canvasLink}>
               菜單
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className={styles.canvasLink}>
+            <Link href="/product" className={styles.canvasLink}>
               購物專區
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className={styles.canvasLink}>
+            <Link href="/ReservationRules" className={styles.canvasLink}>
               立即預約
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className={styles.canvasLink}>
-              我的訂單
-            </a>
+            <Link href="/member/profile" className={styles.canvasLink}>
+              會員專區
+            </Link>
           </li>
           <li>
-            <a href="#" className={styles.canvasLink}>
+            <Link href="/member/register" className={styles.canvasLink}>
               註冊
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className={styles.canvasLink}>
+            <Link href="/member/login" className={styles.canvasLink}>
               登入
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

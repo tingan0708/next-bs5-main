@@ -16,42 +16,28 @@
   background-color: #465652;
 }
 
+/* messageboard.module.scss */
 .score {
-  display: inline-flex;
-  flex-direction: row-reverse;
-  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.score > label {
-  user-select: none;
-}
-
-.score > input {
+.radioInput {
   display: none;
 }
 
-.score > input {
-  display: none; /* 隱藏原始單選按鈕 */
-}
-.score > label {
+.star {
   cursor: pointer;
-  color: gray; /* 預設星星顏色 */
 }
-.score > label:before {
-  content: '\f006'; /* 空心星星 */
-  font-family: 'Font Awesome 5 Free';
+
+.star:hover,
+.star:hover ~ .star {
+  color: #ffd43b !important;
 }
-.score > label:hover:before,
-.score > label:hover ~ label:before {
-  content: '\f005'; /* 實心星星 */
-  color: gold;
-  font-weight: 900;
-}
-.score > input:checked + label:before,
-.score > input:checked ~ label:before {
-  content: '\f005'; /* 實心星星 */
-  color: gold;
-  font-weight: 900;
+
+input:checked ~ label .faStar {
+  color: #ffd43b;
 }
 .commentBoard {
   font-size: 24px;
@@ -98,16 +84,6 @@
   box-shadow: 10px 10px 20px black;
   width: 300px;
   font-family: 'LXGW WenKai Mono TC', monospace;
-}
-
-.commentStar > label {
-  user-select: none;
-  color: gold;
-  /* 實心星星和空心星星的顏色 */
-  font-size: 18px;
-  /* 調整星星大小 */
-  margin: 0 2px;
-  /* 星星之間的間距 */
 }
 
 .commentContent > .content {

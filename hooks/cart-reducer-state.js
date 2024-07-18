@@ -114,6 +114,18 @@ export const totalPrice = (items) =>
 export const totalItems = (items) =>
   items.reduce((sum, item) => sum + item.quantity, 0)
 
+/*7/17改這裡*/
+/**
+ * `applyCoupon(state, couponValue)` 應用折價卷，更新總金額。
+ */
+export const applyCoupon = (state, couponValue) => {
+  const discountedTotal = state.totalPrice - couponValue
+  return {
+    ...state,
+    totalPrice: discountedTotal > 0 ? discountedTotal : 0, // 確保總金額不會變為負數
+  }
+}
+
 // 最後將更新後的state，與initialState整理成新的state
 export const generateCartState = (state, items) => {
   // isEmpty為布林值

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useAuth } from '@/hooks/use-auth'
 import { getUserById } from '@/services/user'
-import Swal from 'sweetalert2'
 
 const initUserProfile = {
   name: '',
@@ -28,11 +27,12 @@ const initUserProfile = {
 const MemberLevel = () => {
   const { auth } = useAuth()
   const [userProfile, setUserProfile] = useState(initUserProfile)
-  const [totalAmount, setTotalAmount] = useState(0)
-  const [membershipLevel, setMembershipLevel] = useState('普通會員')
-  const [nextLevelAmount, setNextLevelAmount] = useState(2000)
-  const [progressWidth, setProgressWidth] = useState('0%')
+  const [totalAmount, setTotalAmount] = useState(0) // 累積消費金額的狀態
+  const [membershipLevel, setMembershipLevel] = useState('普通會員') // 會員等級的狀態
+  const [nextLevelAmount, setNextLevelAmount] = useState(2000) // 距離下一個等級所需金額的狀態
+  const [progressWidth, setProgressWidth] = useState('0%') // 進度條的寬度狀態
 
+  // 定義會員等級和對應的目標金額
   const membershipTargets = [
     { level: 'VIP', amount: 2000 },
     { level: 'VIP999', amount: 7000 },
@@ -40,6 +40,7 @@ const MemberLevel = () => {
     { level: '尊貴會員', amount: 20000 },
   ]
 
+  // 讀取user資料
   const getUserData = async (id) => {
     try {
       const res = await getUserById(id)
@@ -50,65 +51,31 @@ const MemberLevel = () => {
           (order) => order.status === '已付款' || order.status === '完成訂單'
         )
 
+        // 計算累積金額
         const accumulatedAmount = dbPurchaseOrders.reduce(
           (acc, order) => acc + order.amount,
           0
         )
 
+        // 更新狀態中的累積金額
         setTotalAmount(accumulatedAmount)
+
+        // 根據累積金額更新會員等級和下一個等級所需金額
         updateMembershipLevel(accumulatedAmount)
-        checkAndSendCoupon(accumulatedAmount, id)
+      } else {
+        // 加載失敗
       }
     } catch (error) {
       console.error('Error fetching user data:', error)
     }
   }
 
-  const checkAndSendCoupon = async (accumulatedAmount, userId) => {
-    console.log('Sending coupon request:', accumulatedAmount, userId);
-    try {
-      const response = await fetch(`http://localhost:3005/api/coupons/add/${userId}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          accumulatedAmount, // 此資料不會被插入資料庫，只在後端邏輯中使用
-        })
-      });
-  
-      if (!response.ok) {
-        console.error('Fetch error:', response.status, response.statusText);
-        throw new Error('Network response was not ok');
-      }
-  
-      const data = await response.json();
-      console.log('Coupon response:', data);
-  
-      if (data.success) {
-        const couponValue = data.result.coupons_sample_price;
-        Swal.fire({
-          title: '恭喜！',
-          text: `您已獲得一張價值 ${couponValue} 元的折價券！`,
-          icon: 'success',
-          confirmButtonText: '前往會員資料查看',
-        }).then((result) => {
-          if (result.isConfirmed) {
-            window.location.href = '/profile';
-          }
-        });
-      } else {
-        console.error('Backend error:', data);
-      }
-    } catch (error) {
-      console.error('Error sending coupon:', error);
-    }
-  };
-
+  // 以累積金額去更新會員等級和下一個等級金額
   const updateMembershipLevel = (accumulatedAmount) => {
     let newMembershipLevel = '普通會員'
     let newNextLevelAmount = 2000
 
+    // 累積金額>=第一個目標值，設置新的會員等級和下一個金額
     for (let i = 0; i < membershipTargets.length; i++) {
       const target = membershipTargets[i]
       if (accumulatedAmount >= target.amount) {
@@ -122,10 +89,12 @@ const MemberLevel = () => {
       }
     }
 
+    // 如果未達到第一個目標值，計算進度條的百分比
     if (accumulatedAmount < membershipTargets[0].amount) {
       const percentage = (accumulatedAmount / membershipTargets[0].amount) * 100
       setProgressWidth(`${percentage}%`)
     } else {
+      // 否則根據當前累積金額重新計算進度條寬度
       const currentTarget = membershipTargets.find(
         (target) => target.level === newMembershipLevel
       )
@@ -141,6 +110,7 @@ const MemberLevel = () => {
       setProgressWidth(`${percentage}%`)
     }
 
+    // 更新會員等級和下一個等級所需金額的狀態
     setMembershipLevel(newMembershipLevel)
     setNextLevelAmount(newNextLevelAmount)
   }
@@ -157,7 +127,10 @@ const MemberLevel = () => {
     }
   }, [userProfile])
 
+  const toggleDetails = (orderId) => {}
+
   useEffect(() => {
+    // 每當 totalAmount 或者 progressWidth 改變時更新進度條
     const progressElement = document.querySelector('.progress-bar')
     if (progressElement) {
       progressElement.style.width = progressWidth
@@ -170,7 +143,7 @@ const MemberLevel = () => {
         <div className="col">
           <span
             style={{
-              marginRight: '5px',
+              marginRight: '3px',
               fontSize: '16px',
               fontWeight: 'bold',
               color: '#333',
@@ -181,19 +154,20 @@ const MemberLevel = () => {
           <span
             style={{
               display: 'inline-block',
-              padding: '6px 8px',
+              padding: '5px 7px',
               fontSize: '16px',
               fontWeight: 'bold',
               color: '#333',
               backgroundColor: '#ffffff',
               borderRadius: '3px',
-              marginTop: '2px',
+              marginTop: '2px', 
               fontFamily: 'Arial, sans-serif',
             }}
           >
             {totalAmount}
           </span>
-          <span style={{ marginLeft: '5px' }}>
+          <br /> 
+          <span style={{ marginLeft: '0px' }}>
             會員等級:{' '}
             <span id="spanText" className="fs-4 text-warning">
               {membershipLevel}

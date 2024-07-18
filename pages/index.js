@@ -4,17 +4,23 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
 import FirstPicture from '@/components/mudanlow/frontpage/first-pic'
 import Navbar from '@/components/layout/mudanlow-layout/navbar'
+import NavbarLogin from '@/components/layout/mudanlow-layout/navbar-login'
 import Footer from '@/components/layout/mudanlow-layout/footer'
 import FrontPageCarousel from '@/components/mudanlow/frontpage/carousel'
 import MessageBoard from '@/components/mudanlow/frontpage/messageboard'
 import Link from 'next/link'
 import News from '@/components/mudanlow/frontpage/news'
+import NavbarMotion from '@/components/layout/mudanlow-layout/navbar-motion'
+import { useAuth } from '@/hooks/use-auth'
 
 export default function MudanlowIndex() {
+  const { auth } = useAuth()
+
   return (
     <>
       <FirstPicture />
-      <Navbar />
+      {auth.isAuth ? <NavbarLogin /> : <Navbar />}
+      <NavbarMotion />
       <section id="about-us" className="background2">
         <div className="container-fluid p-5">
           <div className="row align-items-center justify-content-center g-5">

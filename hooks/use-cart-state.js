@@ -129,6 +129,15 @@ export const CartProvider = ({
     setCartItems(decrementOne(cartItems, id))
   }
 
+  const applyCoupon = (cartItems, couponValue) => {
+    const updatedState = generateCartState({}, cartItems)
+    const discountedTotal = updatedState.totalPrice - couponValue
+    return {
+      ...updatedState,
+      totalPrice: discountedTotal > 0 ? discountedTotal : 0,
+    }
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -142,6 +151,10 @@ export const CartProvider = ({
         isInCart,
         increment,
         decrement,
+        applyCoupon: (couponValue) => {
+          const newCartState = applyCoupon(cartItems, couponValue)
+          setCartState(newCartState)
+        },
       }}
     >
       {children}
