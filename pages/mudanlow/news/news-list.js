@@ -89,7 +89,7 @@ export default function NewsList() {
         </div>
       </div>
       <div className="container-fluid d-flex justify-content-center align-items-center">
-        <ul className="list-unstyled" id="news-list">
+        <ul className="list-unstyled newsMaintain" id="news-list">
           {articles.length > 0 ? (
             articles.map((article) => (
               <li key={article.a_id}>

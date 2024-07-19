@@ -9,6 +9,7 @@ import Footer from './footer'
 import { useAuth } from '@/hooks/use-auth'
 import { useLoader } from '@/hooks/use-loader'
 import NavbarMotion from './navbar-motion'
+import NextBreadCrumb from '@/components/common/next-breadcrumb'
 
 export default function MudanlowLayout({ title = 'Mudanlow', children }) {
   const { auth } = useAuth()

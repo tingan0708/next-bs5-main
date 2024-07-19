@@ -113,7 +113,6 @@ export default function NewsContent() {
 
   return (
     <>
-      <Navbar />
       <div className="container-fluid newsPage">
         <div className="newsNavbarPic bg-secondary position-relative">
           <div className="position-absolute newsNavbarPicText">最新消息</div>
@@ -146,17 +145,21 @@ export default function NewsContent() {
               <div>
                 <ul>
                   <li />
+                  132456
                   <li />
+                  123456
                   <li />
+                  123546
                   <li />
+                  123456
                   <li />
+                  123456
                 </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <Footer />
       <style jsx>{`
         .newsPage {
           padding: 0 200px;
@@ -254,6 +257,7 @@ export default function NewsContent() {
 
         .share {
           color: #000;
+          font-family: 'Chocolate Classical Sans', sans-serif;
         }
 
         .insideContent {

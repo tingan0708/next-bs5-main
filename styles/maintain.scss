@@ -1,3 +1,4 @@
+// 全域css
 body {
   /* margin: 0;
   padding: 0; */
@@ -30,6 +31,13 @@ body {
   font-style: normal;
 }
 
+.chocolate-classical-sans-regular {
+  font-family: 'Chocolate Classical Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*標題字體*/
 h1,
 h2,
 h3,
@@ -71,7 +79,7 @@ a:focus,
 a:active {
   color: #e4e3e3;
 }
-
+/*section上下寬度*/
 section {
   padding-top: 130px;
   padding-bottom: 130px;
@@ -84,11 +92,7 @@ section {
   font-size: 24px;
 }
 
-.frontpageLogo img,
-#scroll-down {
-  transition: transform 0.3s ease;
-}
-
+/*navbar相關設置*/
 .navItem {
   position: relative;
 }
@@ -132,6 +136,7 @@ section {
 .frontpage {
   height: 100vh;
   position: relative;
+  z-index: 2;
 }
 
 .arrow {
@@ -141,6 +146,13 @@ section {
   top: 65%;
   left: 49%;
 }
+
+/*主頁圖片動畫*/
+.frontpageLogo img,
+#scroll-down {
+  transition: transform 0.3s ease;
+}
+
 /* 首頁logo */
 .frontpageLogo {
   position: fixed;
@@ -158,12 +170,23 @@ section {
   object-fit: cover;
 }
 
+/*首頁遮罩*/
 .overlay {
   width: 100%;
   height: 100vh;
   background: #000;
   opacity: 0.5;
   position: absolute;
+}
+
+/*首頁標題*/
+
+.frontTitle {
+  padding-left: 200px;
+}
+
+.frontTitle2 {
+  text-align: center;
 }
 
 /* 最新消息 */
@@ -188,34 +211,11 @@ section {
   margin: 0;
 }
 
-.frontPageImg {
-  object-fit: cover;
-  width: 100%;
+.news-arrow {
+  font-size: 10px;
 }
 
-.menuBtn {
-  position: absolute;
-  bottom: 50px;
-  border-radius: 10px;
-  padding: 5px 10px;
-  background: #eece6c;
-  font-family: 'LXGW WenKai Mono TC', monospace;
-}
-
-.menuBtn:hover {
-  background: #ffffff00;
-  color: #fff;
-  transition: 0.3s;
-}
-
-.frontTitle {
-  padding-left: 200px;
-}
-
-.frontTitle2 {
-  text-align: center;
-}
-
+/*背景設置*/
 .background1 {
   background-image: linear-gradient(
       to bottom,
@@ -233,6 +233,7 @@ section {
   background-size: cover;
 }
 
+/*菜色介紹輪播圖*/
 .cardCarousel {
   --card-width: 80%;
   --card-max-width: 800px;
@@ -257,6 +258,7 @@ section {
   transition: all 0.2s ease;
 }
 
+/*輪播圖卡片*/
 .cardCarousel .ImgCard {
   background: whitesmoke;
   width: var(--card-width);
@@ -283,7 +285,7 @@ section {
 .ImgCard.highlight {
   filter: brightness(1);
 }
-
+/*輪播圖照片*/
 .ImgCard:nth-of-type(1) {
   background-image: url('/images/mudanlow-小圖檔/DSC00596.jpg');
   background-size: cover;
@@ -327,6 +329,7 @@ section {
   box-shadow: inset 0px 0px 17px 0px rgba(0, 0, 0, 0.3); */
 }
 
+/*輪播圖按鈕*/
 .carouselBtn {
   padding: 1px 8px;
   border-radius: 0.5em;
@@ -336,31 +339,156 @@ section {
   font-size: 18px;
 }
 
-.aboutHire {
-  --widthHire: 100%;
-  position: relative;
+/*輪播圖前後按鈕*/
+.preBtn {
+  color: lightblue;
+  cursor: pointer;
+}
+.nextBtn {
+  color: lightblue;
+  cursor: pointer;
 }
 
+/*關於我們section內部設置*/
 .aboutHireImg {
   width: 100%;
   object-fit: cover;
   box-shadow: 2px 2px 2px gray;
+  z-index: 1;
 }
-.aboutHire > button {
+
+.aboutHire {
+  position: relative;
+  width: 480px;
+  height: 360px;
+  overflow: hidden;
+}
+
+.hoverContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hireOverlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: #00000000;
+  transition: background-color 0.5s;
+}
+
+.hireBtn {
   border-radius: 0.5rem;
   padding: 2px 8px;
   position: absolute;
-  bottom: 10px;
-  left: calc(var(--widthHire) / 2);
-  transform: translate(-50%, -50%);
+  bottom: -100px; /* 初始位置设为底部外 */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  transition: bottom 0.8s; /* 加入过渡效果 */
 }
 
-.news-arrow {
-  font-size: 10px;
+/* 當懸停在 hoverContainer 內的任何元素上時，改變 hireOverlay 的背景顏色 */
+.hoverContainer:hover .hireOverlay {
+  background-color: #00000077;
 }
 
+/* 當懸停在按鈕上時，按鈕上移 */
+.hoverContainer:hover .hireBtn {
+  bottom: 50px;
+}
+
+/*背景圖片*/
 .pic1 {
   z-index: 1;
   bottom: 0;
-  right: 50px;
+  right: 0;
+}
+
+.pic2 {
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+}
+/*背景物件*/
+.backgroundItem {
+  position: absolute;
+  right: -250px;
+  top: -250px;
+  z-index: 1;
+}
+
+.backgroundItem2 {
+  position: absolute;
+  left: -150px;
+  bottom: -150px;
+  z-index: 1;
+}
+
+/*照片切割線遮罩*/
+.picOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 0%, 0.616);
+}
+/*跑馬燈*/
+.runHorseLight {
+  height: 100%;
+  color: #ffffff;
+  font-family: 'Chocolate Classical Sans', sans-serif;
+  font-size: 100px;
+  font-style: italic;
+}
+/*起源宗旨設置*/
+.aboutUsSection {
+  overflow: hidden;
+}
+
+/*地圖翻面動畫*/
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.mapBackground {
+  background-image: url('/pics/background3.png');
+  height: 100%;
+}
+
+/*最新消息new-list(非首頁)列表顏色設置*/
+.newsMaintain {
+  background-color: #e4e3e3;
+  border-radius: 10px;
+  box-shadow: 3px 3px 7px gray;
+  padding-left: 15px;
+  padding-right: 15px;
 }
