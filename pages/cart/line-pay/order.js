@@ -96,7 +96,7 @@ export default function Order() {
           timer: 3000,
           timerProgressBar: true,
           didClose: () => {
-            router.push('/')
+            router.push('/member/new-cart')
           },
         })
       } else {

@@ -22,6 +22,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Navbar from '@/components/layout/mudanlow-layout/navbar'
 import Footer from '@/components/layout/mudanlow-layout/footer'
+import MudanlowLayout from '@/components/layout/mudanlow-layout'
 
 // 定義要在此頁呈現/編輯的會員資料初始物件
 const initUserProfile = {
@@ -164,7 +165,7 @@ export default function Profile() {
 
   return (
     <>
-      <Navbar />
+      <MudanlowLayout />
       <div className="container profile my-5">
         <MemberNavbar />
         <div

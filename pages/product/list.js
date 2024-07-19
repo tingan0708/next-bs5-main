@@ -83,7 +83,7 @@ export default function List() {
 
   useEffect(() => {
     fetchProducts()
-  }, [page])
+  }, [])
 
   useEffect(() => {
     if (loading) return
