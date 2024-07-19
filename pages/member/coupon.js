@@ -120,7 +120,7 @@ export default function Coupon() {
       <NavbarLogin />
       <div className="container cPage my-5">
         <MemberNavbar />
-        <Container fluid className="member-profile-container">
+        <Container fluid className="member-profile-container overflow-scroll">
           <h2 className="text-center mb-4 ">折價卷查詢</h2>
           <div className="row ">
             {coupons.length > 0 ? (
@@ -153,7 +153,7 @@ export default function Coupon() {
                           ) : (
                             ''
                           )}
-                          {v.car_id == 1 ? (
+                          {v.used == 1 ? (
                             <div className="coupon_world">
                               {' '}
                               <IoTicketOutline />
@@ -182,7 +182,6 @@ export default function Coupon() {
           </div>
         </Container>
       </div>
-      <Footer />
       <style>{`
       {/*  動畫  */}
       .member-profile-container {
@@ -294,7 +293,7 @@ export default function Coupon() {
       <style jsx>
         {`
           .cPage {
-            height: 100%;
+            height: 100vh;
           }
           .couponsBg {
             width: 300px;
