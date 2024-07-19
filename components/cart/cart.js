@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import List from '@/components/cart/list'
 import { useCart } from '@/hooks/use-cart-state'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 const Cart = () => {
   const [showSidebar, setShowSidebar] = useState(false)
@@ -65,22 +67,7 @@ const Cart = () => {
         tabIndex={0}
       >
         <div className="icon-wrapper">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="34"
-            height="34"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="icon icon-tabler-shopping-cart"
-          >
-            <circle cx="8" cy="19" r="2" />
-            <circle cx="17" cy="19" r="2" />
-            <path d="M5 6h15l-1.5 9h-15z" />
-          </svg>
+          <FontAwesomeIcon icon={faShoppingCart} size="2x" />
           <div className="cart-count">{cart.totalItems}</div>
         </div>
       </div>
@@ -98,22 +85,7 @@ const Cart = () => {
           role="button"
           tabIndex={0}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="icon icon-tabler icon-tabler-x"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="#000000"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
+          <FontAwesomeIcon icon={faTimes} size="lg" />
         </div>
         <div className="cart-items">
           {cartItems.map((item, index) => (
@@ -126,7 +98,6 @@ const Cart = () => {
         </div>
         <div className="cart-total">
           <h5>
-            {' '}
             數量: {cart.totalItems} / 總價: {cart.totalPrice}
           </h5>
           <Link href="/cart">
@@ -160,8 +131,9 @@ const Cart = () => {
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 100%;
+          width: 57%;
           height: 100%;
+          position: relative;
         }
         .cart-count {
           width: 25px;
@@ -169,13 +141,13 @@ const Cart = () => {
           position: absolute;
           top: -10px;
           right: -5px;
-          background: #ff6f61;
+          background: #dc3545;
           color: white;
           border-radius: 50%;
-          padding: 0px 0px 0px 8px;
-          font-size: 14px;
+          display: flex;
           justify-content: center;
           align-items: center;
+          font-size: 14px;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
         .cart-sidebar {

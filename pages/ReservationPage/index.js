@@ -369,7 +369,6 @@ export default function ReservationPage() {
 
   return (
     <>
-      <Navbar />
       <div className="container">
         {loading && (
           <Loader center content="我在努力中 > <" size="lg" backdrop />
@@ -720,7 +719,6 @@ export default function ReservationPage() {
           </>
         )}
       </div>
-      <Footer />
     </>
   )
 }

@@ -54,7 +54,6 @@ export default function ForgetPassword() {
 
   return (
     <>
-      <Navbar />
       <div className="container my-5">
         <MemberNavbar />
         <Container>
@@ -111,7 +110,6 @@ export default function ForgetPassword() {
           <Toaster />
         </Container>
       </div>
-      <Footer />
     </>
   )
 }

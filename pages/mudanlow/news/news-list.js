@@ -55,7 +55,6 @@ export default function NewsList() {
 
   return (
     <>
-      <Navbar />
       <div className="container-fluid">
         <div className="position-relative">
           <button className="btn btn-success back-btn">
@@ -129,7 +128,7 @@ export default function NewsList() {
           回到頂部
         </button>
       </div>
-      <Footer />
+
       <style jsx>{`
         .SlideMediaBox {
           background-color: cornflowerblue;

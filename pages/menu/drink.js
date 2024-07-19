@@ -48,7 +48,7 @@ export default function Drink() {
   }, [drink])
 
   return (
-    <MudanlowLayout>
+    <>
       <div className="topPhoto"></div>
       <MenuNav />
       <DrinkTitle />
@@ -239,6 +239,6 @@ export default function Drink() {
           }
         `}
       </style>
-    </MudanlowLayout>
+    </>
   )
 }

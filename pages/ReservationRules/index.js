@@ -10,7 +10,6 @@ export default function ReservationRules() {
     <>
       <div className={styles.body}>
         {/* <Header /> */}
-        <Navbar />
         <main className={styles.mainContent}>
           <div className={styles.container}>
             <div className={styles.titlePage}>
@@ -68,7 +67,6 @@ export default function ReservationRules() {
             </div>
           </div>
         </main>
-        <Footer />
       </div>
     </>
   )

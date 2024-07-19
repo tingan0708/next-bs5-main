@@ -112,10 +112,9 @@ export default function CartIndex() {
 
   return (
     <>
-      {auth.isAuth ? <NavbarLogin /> : <Navbar />}
-      <div className="bodycart justify-content-center">
+      <div className="bodycart">
         <div className="col-lg-10">
-          <div className="row">
+          <div className="row d-flex justify-content-center">
             <div className="card mb-4 shadow-sm">
               <div className="card-body">
                 <h4 className="card-title mb-4">購物車</h4>
@@ -226,18 +225,16 @@ export default function CartIndex() {
           </div>
         </div>
       </div>
-      <Footer />
 
       <style jsx>{`
         .bodycart {
-          max-width: 1200px;
-          margin: 0 auto;
+          max-width: 100%;
           padding: 20px;
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
           background-image: url('/images/product/bg/mudan.webp');
           background-size: cover;
           background-position: center;
-          border-radius: 15px;
+
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
           display: flex;
           justify-content: center;

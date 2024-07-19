@@ -117,7 +117,6 @@ export default function Coupon() {
 
   return (
     <>
-      <NavbarLogin />
       <div className="container cPage my-5">
         <MemberNavbar />
         <Container fluid className="member-profile-container overflow-scroll">

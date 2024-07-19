@@ -12,7 +12,7 @@ import Mymasonry from '@/components/menu/mymasonry'
 
 export default function IndexTest() {
   return (
-    <MudanlowLayout>
+    <>
       <Mymasonry />
       <div className="container menu mt-5 mb-5">
         <MenuNav />
@@ -231,6 +231,6 @@ export default function IndexTest() {
           }
         `}
       </style>
-    </MudanlowLayout>
+    </>
   )
 }

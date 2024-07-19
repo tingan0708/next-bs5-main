@@ -24,7 +24,6 @@ export default function ReserveCarousel() {
 
   return (
     <main>
-      <Navbar />
       <div className={styles.SplineContainer}>
         <iframe
           src="https://my.spline.design/untitled-af942951130cce33e9c0f72f659506bb/"
@@ -44,7 +43,6 @@ export default function ReserveCarousel() {
           title="牡丹樓的3D預約按鈕"
         ></iframe>
       </div>
-      <Footer />
     </main>
   )
 }

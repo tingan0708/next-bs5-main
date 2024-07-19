@@ -90,7 +90,6 @@ export default function LoginForm() {
 
   return (
     <>
-      {isAuth ? <NavbarLogin /> : <Navbar />}
       <main className={`form-member w-100 m-auto text-center`}>
         <h2 className="text-center mb-5">會員登入</h2>
         <form onSubmit={handleSubmit}>
@@ -189,7 +188,6 @@ export default function LoginForm() {
           `}
         </style>
       </main>
-      <Footer />
     </>
   )
 }

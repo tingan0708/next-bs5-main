@@ -47,7 +47,7 @@ export default function Liquor() {
   }, [liquor])
 
   return (
-    <MudanlowLayout>
+    <>
       <div className="topPhoto"></div>
       <MenuNav />
       <LiquorTitle />
@@ -248,6 +248,6 @@ export default function Liquor() {
           }
         `}
       </style>
-    </MudanlowLayout>
+    </>
   )
 }

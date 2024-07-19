@@ -49,7 +49,7 @@ export default function One() {
   }, [one])
 
   return (
-    <MudanlowLayout>
+    <>
       <div className="topPhoto"></div>
       <MenuNav />
       <OneTitle />
@@ -228,6 +228,6 @@ export default function One() {
           }
         `}
       </style>
-    </MudanlowLayout>
+    </>
   )
 }

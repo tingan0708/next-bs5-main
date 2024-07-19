@@ -20,7 +20,6 @@ export default function MudanlowIndex() {
     <>
       <FirstPicture />
       {auth.isAuth ? <NavbarLogin /> : <Navbar />}
-      <NavbarMotion />
       <section id="about-us" className="background2">
         <div className="container-fluid p-5">
           <div className="row align-items-center justify-content-center g-5">
@@ -188,7 +187,6 @@ export default function MudanlowIndex() {
 
       {/* 留言板 */}
       <MessageBoard />
-      <Footer />
     </>
   )
 }

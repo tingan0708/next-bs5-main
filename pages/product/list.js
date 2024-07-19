@@ -370,7 +370,6 @@ export default function List() {
 
   return (
     <>
-      {auth.isAuth ? <NavbarLogin /> : <Navbar />}
       <Cart />
       <div className="row mt-2 mb-3">
         <h5 className="card-text d-flex justify-content-between align-items-center">
@@ -440,11 +439,10 @@ export default function List() {
           </div>
         </div>
       </div>
-      <Footer />
       {messageModal}
       <style jsx>{`
         .row {
-          max-width: 1200px;
+          width: 1200px;
           margin: 0 auto;
           padding: 20px;
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

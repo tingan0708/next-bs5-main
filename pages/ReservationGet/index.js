@@ -172,7 +172,6 @@ export default function ReserveGet() {
 
   return (
     <div>
-      <Navbar />
       {loading && <Loader center content="我在努力中 > <" size="lg" backdrop />}
       {!loading && selectedReservationId === null && (
         <>
@@ -300,7 +299,6 @@ export default function ReserveGet() {
           onClose={() => setDrawerOpen(false)}
         />
       )}
-      <Footer />
     </div>
   )
 }

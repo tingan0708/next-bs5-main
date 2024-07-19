@@ -5,7 +5,6 @@ import React from 'react'
 export default function Introduce() {
   return (
     <>
-      <Navbar />
       <div className="container mt-5 pt-4">
         <div className="row align-items-center text-center g-2 mt-5">
           <div className="col-6 col-sm-12 col-lg-6">
@@ -165,7 +164,6 @@ export default function Introduce() {
           </div>
         </div>
       </div>
-      <Footer />
       <style jsx>{`
         .tourist-spots {
           max-height: 190px;
