@@ -6,16 +6,14 @@ export default function Hire() {
   return (
     <>
       <Navbar />
-      <div className="container-fluid ">
-        <div className="picture d-flex justify-content-center align-items-center">
+      <div className="container-fluid">
+        <div className="picture d-flex align-items-center">
           <div className="row justify-content-center align-items-center g-2 card">
-            <div className="col">
-              <h2 className="boxsize text-center m-auto mt-5 mb-5 text-light  p-3">
-                人 &nbsp;才 &nbsp; 招 &nbsp; 募
-              </h2>
-            </div>
-            <div className="boxsize2 fs-5 text-center text-light ">
-              牡丹亭招募對於餐飲業有熱情的夥伴們
+            <h2 className="boxsize text-center m-auto mt-5 mb-5 text-light p-3">
+              人 才 招 募
+            </h2>
+            <div className="boxsize2 fs-5 text-center text-light">
+              牡丹樓招募對於餐飲業有熱情的夥伴們
               <br />
               不分年齡一起加入這個大家庭!
               <br />
@@ -46,7 +44,12 @@ export default function Hire() {
             height: 40rem;
             background-image: url(/images/mudanlow-小圖檔/DSC00567.jpg);
             background-position: 0px -380px;
-            z-index: 1;
+            padding: 10px 10px 10px 25%;
+          }
+          @media (max-width: 768px) {
+            .picture {
+              padding: 10px 20px;
+            }
           }
 
           .overlay {
