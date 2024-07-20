@@ -148,7 +148,7 @@ export default function MudanlowIndex() {
           <div className="row d-flex justify-content-evenly align-items-center">
             <div className="col-4">
               <div className="aboutHire">
-                <div class="hoverContainer">
+                <div className="hoverContainer">
                   <div className="hireOverlay"></div>
                   <Image
                     className="aboutHireImage"
@@ -183,7 +183,7 @@ export default function MudanlowIndex() {
             </div>
             <div className="col-4">
               <div className="aboutHire">
-                <div class="hoverContainer">
+                <div className="hoverContainer">
                   <div className="hireOverlay"></div>
                   <Image
                     className="aboutHireImage"

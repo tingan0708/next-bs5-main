@@ -34,7 +34,7 @@ CREATE TABLE `articles` (
   `photos` varchar(255) DEFAULT NULL,
   `content` text,
   `key_word_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `articles`
@@ -75,7 +75,7 @@ CREATE TABLE `bento` (
   `price` int DEFAULT NULL,
   `image` varchar(1000) DEFAULT '[]',
   `popularity` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `bento`
@@ -122,7 +122,7 @@ CREATE TABLE `cart_status` (
   `sid` int NOT NULL,
   `status_name` varchar(50) NOT NULL,
   `status_remark` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `cart_status`
@@ -202,7 +202,7 @@ CREATE TABLE `combo_meal` (
   `price` int DEFAULT NULL,
   `image` varchar(1000) DEFAULT '[]',
   `popularity` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `combo_meal`
@@ -275,7 +275,7 @@ CREATE TABLE `contact_book` (
   `receive_name` varchar(50) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `contact_mobile` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `contact_book`
@@ -329,7 +329,7 @@ CREATE TABLE `coupons` (
   `over_maxAge` tinyint(1) DEFAULT '0',
   `cs_id` int DEFAULT NULL,
   `accumulatedAmoun` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `coupons`
@@ -370,7 +370,7 @@ CREATE TABLE `coupons_sample` (
   `cs_id` int DEFAULT NULL,
   `coupons_sample_price` int DEFAULT NULL,
   `coupons_explain` varchar(1000) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `coupons_sample`
@@ -398,7 +398,7 @@ CREATE TABLE `dessert` (
   `price` int DEFAULT NULL,
   `image` varchar(1000) DEFAULT '[]',
   `popularity` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `dessert`
@@ -426,7 +426,7 @@ CREATE TABLE `drink` (
   `price` int DEFAULT NULL,
   `image` varchar(1000) DEFAULT '[]',
   `popularity` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `drink`
@@ -475,7 +475,7 @@ INSERT INTO `favorite` (`id`, `pid`, `uid`, `created_at`, `updated_at`) VALUES
 CREATE TABLE `key_words` (
   `k_id` int NOT NULL,
   `key_name` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `key_words`
@@ -501,7 +501,7 @@ CREATE TABLE `liquor` (
   `price` int DEFAULT NULL,
   `image` varchar(1000) DEFAULT '[]',
   `popularity` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `liquor`
@@ -530,7 +530,7 @@ CREATE TABLE `member_card` (
   `quantity` int DEFAULT NULL,
   `totalPrice` decimal(10,2) DEFAULT NULL,
   `card_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `member_card`
@@ -555,7 +555,7 @@ CREATE TABLE `member_login` (
   `status` enum('active','blacklist') NOT NULL DEFAULT 'active',
   `reason` varchar(255) DEFAULT NULL,
   `blacklist_date` datetime DEFAULT NULL COMMENT '黑名單日期'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `member_login`
@@ -608,7 +608,7 @@ CREATE TABLE `member_profile` (
   `mobile` varchar(15) NOT NULL,
   `birthday` date NOT NULL,
   `create_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `member_profile`
@@ -662,7 +662,7 @@ CREATE TABLE `member_profile_simple` (
   `birthday` date NOT NULL,
   `password` varchar(255) NOT NULL,
   `create_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `member_profile_simple`
@@ -682,7 +682,7 @@ INSERT INTO `member_profile_simple` (`id`, `member_name`, `gender`, `email`, `mo
 CREATE TABLE `menu_items` (
   `item_id` int NOT NULL,
   `item_name` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `menu_items`
@@ -709,7 +709,7 @@ CREATE TABLE `messages` (
   `isMerchant` tinyint(1) DEFAULT NULL,
   `message` text,
   `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `messages`
@@ -736,7 +736,7 @@ CREATE TABLE `one` (
   `price` int DEFAULT NULL,
   `image` varchar(1000) DEFAULT '[]',
   `popularity` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `one`
@@ -774,7 +774,7 @@ CREATE TABLE `orderlist` (
   `product_id` int DEFAULT NULL,
   `product_time` datetime DEFAULT NULL,
   `product_quantity` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -8007,7 +8007,7 @@ CREATE TABLE `qrcode` (
   `amount` int DEFAULT NULL,
   `detail` varchar(1000) DEFAULT NULL,
   `time` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `qrcode`
@@ -8096,7 +8096,7 @@ CREATE TABLE `reservation` (
   `member_name` varchar(255) NOT NULL,
   `mobile` varchar(20) NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -8117,7 +8117,7 @@ CREATE TABLE `reservationsimple` (
   `textAreaInput` varchar(255) DEFAULT NULL,
   `status` int DEFAULT '1',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `reservationsimple`
@@ -8147,7 +8147,7 @@ CREATE TABLE `reservationsmileback` (
   `rating` decimal(3,1) NOT NULL,
   `textarea` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -8168,7 +8168,7 @@ CREATE TABLE `savemoneysystem` (
   `expiry` varchar(7) NOT NULL,
   `balance` int NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 傾印資料表的資料 `savemoneysystem`
@@ -8188,7 +8188,7 @@ CREATE TABLE `sessions` (
   `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `expires` int UNSIGNED NOT NULL,
   `data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 

@@ -63,7 +63,7 @@ export default function Lottery() {
         backgroundImage: `url(/qrcode/山水畫.jpg)`,
       }}
     >
-      <img src="/qrcode/logo-gold.png" alt="" height="10%" id="logo" />
+      {/* <img src="/qrcode/logo-gold.png" alt="" height="10%" id="logo" /> */}
       <h2>本次消費金額: {tradeAmt}</h2>
       <h3>剩餘抽獎次數: {lotteryCount}</h3>
       <LuckyWheel
