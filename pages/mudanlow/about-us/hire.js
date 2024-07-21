@@ -5,7 +5,7 @@ import React from 'react'
 export default function Hire() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="container-fluid">
         <div className="picture d-flex align-items-center">
           <div className="row justify-content-center align-items-center g-2 card">
@@ -31,7 +31,7 @@ export default function Hire() {
         </div>
         <div className="overlay" />
       </div>
-      <Footer />
+      {/* <Footer /> */}
       <style jsx>
         {`
           .container-fluid {

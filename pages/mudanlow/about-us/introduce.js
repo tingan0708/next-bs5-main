@@ -8,7 +8,7 @@ export default function Introduce() {
       <div className="container mt-5 pt-4">
         <div className="row align-items-center text-center g-2 mt-5">
           <div className="col-6 col-sm-12 col-lg-6">
-            <img className="content-img" src="./mudanlow-小圖檔/DSC00572.jpg" />
+            <img className="content-img" src="/about-us/DSC00576.jpg" />
           </div>
           <div className="col-6 col-sm-12 col-lg-6 border content">
             <p>適合家庭、公司、親友聚餐。盡情享受大家相聚歡樂的用餐時光。</p>
@@ -27,12 +27,12 @@ export default function Introduce() {
             </p>
           </div>
           <div className="col-6 col-sm-12 col-lg-6">
-            <img className="content-img" src="./mudanlow-小圖檔/DSC00572.jpg" />
+            <img className="content-img" src="/about-us/DSC00584.jpg" />
           </div>
         </div>
         <div className="row align-items-center text-center g-2 mt-5">
           <div className="col-6 col-sm-12 col-lg-6">
-            <img className="content-img" src="./mudanlow-小圖檔/DSC00572.jpg" />
+            <img className="content-img" src="/about-us/DSC00580.jpg" />
           </div>
           <div className="col-6 col-sm-12 col-lg-6 border content">
             <p className="text-start">前場</p>
@@ -53,31 +53,37 @@ export default function Introduce() {
             </p>
           </div>
           <div className="col-6 col-sm-12 col-lg-6">
-            <img className="content-img" src="./mudanlow-小圖檔/DSC00572.jpg" />
+            <img className="content-img" src="/about-us/DSC00664.jpg" />
           </div>
         </div>
         <h3 className="text-center my-4 border title">室內全景</h3>
         <div className="text-center">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!4v1712890573328!6m8!1m7!1sCAoSLEFGMVFpcFBHeFNRNnJfQmgyeGFueVFLYnc1TURmTXJyUlY2RGVsODMtRlBu!2m2!1d25.04490901184974!2d121.5393301299798!3f277.69705056654783!4f2.1722639438553557!5f0.7820865974627469"
-            width={1300}
-            height={500}
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+            title="panorama"
+            src="https://www.koala360.com/tour?id=7833&preview=true"
+            // style="border:none;"
+            class="my360Tour"
+            name="my360Tour"
+            scrolling="no"
+            allow="vr; xr; accelerometer; magnetometer; gyroscope; webvr; webxr;"
+            frameborder="0"
+            height="400px"
+            width="600px"
+            allowfullscreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+          ></iframe>
         </div>
         <h3 className="text-center my-4 border title">地圖</h3>
         <div className="text-center ">
-          <img src="https://fakeimg.pl/1000x500/" />
+          <img src="/pics/map.png" className="map" />
         </div>
         <h3 className="text-center my-4 border title">鄰近景點介紹</h3>
         <div className="row mb-5">
           <div className="col-sm-6 col-md-6 col-lg-3">
             <div className="card" style={{ width: '18rem' }}>
               <img
-                src="/img/赤崁樓.jpg"
+                src="/about-us/赤崁樓.jfif"
                 className="card-img-top tourist-spots"
                 alt="赤崁樓"
               />
@@ -99,7 +105,7 @@ export default function Introduce() {
           <div className="col-sm-6 col-md-6 col-lg-3">
             <div className="card" style={{ width: '18rem' }}>
               <img
-                src="/img/祀典武廟.jpeg"
+                src="/about-us/祀典武廟.jfif"
                 className="card-img-top tourist-spots"
                 alt="祀典武廟"
               />
@@ -121,7 +127,7 @@ export default function Introduce() {
           <div className="col-sm-6 col-md-6 col-lg-3">
             <div className="card" style={{ width: '18rem' }}>
               <img
-                src="/img/全美戲院.jpg"
+                src="/about-us/全美戲院.jfif"
                 className="card-img-top tourist-spots"
                 alt="全美戲院"
               />
@@ -143,7 +149,7 @@ export default function Introduce() {
           <div className="col-sm-6 col-md-6 col-lg-3">
             <div className="card" style={{ width: '18rem' }}>
               <img
-                src="/img/吳園.jpg"
+                src="/about-us/吳園.jfif"
                 className="card-img-top tourist-spots"
                 alt="吳園"
               />
@@ -181,6 +187,9 @@ export default function Introduce() {
           width: 480px;
           height: 360px;
           border-radius: 10px;
+        }
+        .map {
+          width: 100%;
         }
       `}</style>
     </>

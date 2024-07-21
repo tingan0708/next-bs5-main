@@ -4,12 +4,82 @@ import { LuckyWheel } from '@lucky-canvas/react'
 export default function Lottery() {
   const [blocks] = useState([{ padding: '10px', background: '#869cfa' }])
   const [prizes] = useState([
-    { background: '#e9e8fe', fonts: [{ text: '0' }] },
-    { background: '#b8c5f2', fonts: [{ text: '1' }] },
-    { background: '#e9e8fe', fonts: [{ text: '2' }] },
-    { background: '#b8c5f2', fonts: [{ text: '3' }] },
-    { background: '#e9e8fe', fonts: [{ text: '4' }] },
-    { background: '#b8c5f2', fonts: [{ text: '5' }] },
+    {
+      background: '#e9e8fe',
+      fonts: [
+        { text: '再', top: '10%' },
+        { text: '加', top: '40%' },
+        { text: '油', top: '70%' },
+      ],
+      imgs: [
+        {
+          src: '/qrcode/lottery/b60da0f790950f2f1de622e46220497a-scaled.png',
+          width: '50%',
+          rotate: true,
+          alt: '分解茶',
+        },
+      ],
+    },
+    {
+      background: '#b8c5f2',
+      fonts: [{ text: '1' }],
+      imgs: [
+        {
+          src: '/qrcode/lottery/b60da0f790950f2f1de622e46220497a-scaled.png',
+          width: '50%',
+          rotate: true,
+          alt: '分解茶',
+        },
+      ],
+    },
+    {
+      background: '#e9e8fe',
+      fonts: [{ text: '2' }],
+      imgs: [
+        {
+          src: '/qrcode/lottery/b60da0f790950f2f1de622e46220497a-scaled.png',
+          width: '50%',
+          rotate: true,
+          alt: '分解茶',
+        },
+      ],
+    },
+    {
+      background: '#b8c5f2',
+      fonts: [{ text: '3' }],
+      imgs: [
+        {
+          src: '/qrcode/lottery/b60da0f790950f2f1de622e46220497a-scaled.png',
+          width: '50%',
+          rotate: true,
+          alt: '分解茶',
+        },
+      ],
+    },
+    {
+      background: '#e9e8fe',
+      fonts: [{ text: '4' }],
+      imgs: [
+        {
+          src: '/qrcode/lottery/b60da0f790950f2f1de622e46220497a-scaled.png',
+          width: '50%',
+          rotate: true,
+          alt: '分解茶',
+        },
+      ],
+    },
+    {
+      background: '#b8c5f2',
+      fonts: [{ text: '' }],
+      imgs: [
+        {
+          src: '/qrcode/lottery/b60da0f790950f2f1de622e46220497a-scaled.png',
+          width: '50%',
+          rotate: true,
+          alt: '分解茶',
+        },
+      ],
+    },
   ])
   const [buttons, setButtons] = useState([
     { radius: '40%', background: '#617df2' },
@@ -68,8 +138,8 @@ export default function Lottery() {
       <h3>剩餘抽獎次數: {lotteryCount}</h3>
       <LuckyWheel
         ref={myLucky}
-        width="300px"
-        height="300px"
+        width="500px"
+        height="500px"
         blocks={blocks}
         prizes={prizes}
         buttons={buttons}
@@ -77,8 +147,8 @@ export default function Lottery() {
         onEnd={(prize) => {
           alert(
             '恭喜你抽到 ' +
-              prize.fonts[0].text +
-              ' 号奖品，請於當次消費出示給現場人員使用'
+              prize.imgs[0].alt +
+              ' ，請於當次消費出示給現場人員兌換
           )
         }}
       />
