@@ -148,7 +148,7 @@ export default function Lottery() {
           alert(
             '恭喜你抽到 ' +
               prize.imgs[0].alt +
-              ' ，請於當次消費出示給現場人員兌換
+              ' 號獎品，請於當次消費出示給現場人員使用'
           )
         }}
       />
