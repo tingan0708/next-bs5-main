@@ -71,8 +71,8 @@ export default function NavbarMotion() {
       overlay.style.left = '0'
       overlay.style.width = '100%'
       overlay.style.height = '100%'
-      overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.3)'
-      overlay.style.zIndex = '999'
+      overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)'
+      overlay.style.zIndex = '9999'
       document.body.appendChild(overlay)
       overlayRef.current = overlay
     }, 200)
@@ -168,7 +168,7 @@ export default function NavbarMotion() {
         className="draggable-button"
         style={{
           position: 'fixed',
-          zIndex: 9999,
+          zIndex: 9998,
           width: '70px',
           height: '70px',
           borderRadius: '50%',

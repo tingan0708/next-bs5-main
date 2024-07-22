@@ -47,7 +47,7 @@ export default function Combo() {
   }, [one])
 
   return (
-    <MudanlowLayout>
+    <>
       <div className="topPhoto"></div>
       <MenuNav />
       <ComboTitle />
@@ -238,6 +238,6 @@ export default function Combo() {
           }
         `}
       </style>
-    </MudanlowLayout>
+    </>
   )
 }

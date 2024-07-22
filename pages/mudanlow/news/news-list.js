@@ -55,7 +55,6 @@ export default function NewsList() {
 
   return (
     <>
-      <Navbar />
       <div className="container-fluid">
         <div className="position-relative">
           <button className="btn btn-success back-btn">
@@ -90,7 +89,7 @@ export default function NewsList() {
         </div>
       </div>
       <div className="container-fluid d-flex justify-content-center align-items-center">
-        <ul className="list-unstyled" id="news-list">
+        <ul className="list-unstyled newsMaintain" id="news-list">
           {articles.length > 0 ? (
             articles.map((article) => (
               <li key={article.a_id}>
@@ -129,7 +128,7 @@ export default function NewsList() {
           回到頂部
         </button>
       </div>
-      <Footer />
+
       <style jsx>{`
         .SlideMediaBox {
           background-color: cornflowerblue;

@@ -28,12 +28,17 @@ export default function MyApp({ Component, pageProps }) {
   // 使用預設排版檔案，對應`components/layout/default-layout/index.js`
   // 或`components/layout/default-layout.js`
   const getLayout =
-    Component.getLayout || ((page) => <MudanlowLayout>{page}</MudanlowLayout>)
+    Component.getLayout ||
+    ((page) => (
+      <MudanlowLayout>
+        <main>{page}</main>
+      </MudanlowLayout>
+    ))
 
   return (
     <AuthProvider>
       <LoaderProvider close={2} CustomLoader={CatLoader}>
-        <CartProvider>{<Component {...pageProps} />}</CartProvider>
+        <CartProvider>{getLayout(<Component {...pageProps} />)}</CartProvider>
       </LoaderProvider>
     </AuthProvider>
   )

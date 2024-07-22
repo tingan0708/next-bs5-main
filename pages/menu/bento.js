@@ -48,7 +48,7 @@ export default function Bento() {
   }, [bento])
 
   return (
-    <MudanlowLayout>
+    <>
       <div className="topPhoto">
         <div className="size"></div>
       </div>
@@ -244,6 +244,6 @@ export default function Bento() {
           }
         `}
       </style>
-    </MudanlowLayout>
+    </>
   )
 }

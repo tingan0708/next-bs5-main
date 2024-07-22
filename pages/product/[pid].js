@@ -1,73 +1,71 @@
-import React, { useState } from 'react';
-import Carousel from '@/components/product/carousel';
-import { useCart } from '@/hooks/use-cart-state';
-import { useRouter } from 'next/router';
-import { Modal, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react'
+import Carousel from '@/components/product/carousel'
+import { useCart } from '@/hooks/use-cart-state'
+import { useRouter } from 'next/router'
+import { Modal, Button } from 'react-bootstrap'
+import styles from './ProductDetail.module.css'
+import Cart from '@/components/cart/cart'
 
-export async function getStaticPaths() {
-  try {
-    const res = await fetch('http://localhost:3005/api/products');
-    const responseData = await res.json();
+// 產品詳情頁組件
+const ProductDetail = ({ initialProduct }) => {
+  const { addItem } = useCart() // 使用購物車狀態鉤子
+  const router = useRouter()
+  const [show, setShow] = useState(false) // 控制模態框顯示狀態
+  const [productName, setProductName] = useState('') // 保存產品名稱
+  const [quantity, setQuantity] = useState(1) // 購買數量，初始為1
+  const [product, setProduct] = useState(initialProduct)
 
-    if (!responseData.data.products) {
-      console.error('API response does not contain products');
-      throw new Error('API response does not contain products');
+  useEffect(() => {
+    const fetchProduct = async () => {
+      if (router.query.pid) {
+        const res = await fetch(
+          `http://localhost:3005/api/products/${router.query.pid}`
+        )
+        const responseData = await res.json()
+        if (responseData.data.product) {
+          setProduct(responseData.data.product)
+        }
+      }
     }
 
-    const paths = responseData.data.products.map((product) => ({
-      params: { pid: product.id.toString().padStart(2, '0') },
-    }));
-
-    return { paths, fallback: false };
-  } catch (error) {
-    console.error('Error fetching products:', error);
-    return { paths: [], fallback: false };
-  }
-}
-
-export async function getStaticProps({ params }) {
-  try {
-    const productId = parseInt(params.pid, 10); // 去除前導零並解析為整數
-    const res = await fetch(`http://localhost:3005/api/products/${productId}`);
-    const responseData = await res.json();
-
-    if (!responseData.data.product) {
-      return { notFound: true };
+    if (!product) {
+      fetchProduct()
     }
+  }, [router.query.pid])
 
-    return {
-      props: {
-        product: responseData.data.product,
-      },
-    };
-  } catch (error) {
-    console.error('Error fetching product details:', error);
-    return { props: { product: null } };
-  }
-}
-
-const ProductDetail = ({ product }) => {
-  const { addItem } = useCart();
-  const router = useRouter();
-  const [show, setShow] = useState(false);
-  const [productName, setProductName] = useState('');
-
+  // 如果產品不存在，返回未找到提示
   if (!product) {
-    return <div>Product not found</div>;
+    return <div>Product not found</div>
   }
 
-  const images = product.photos ? product.photos.split(',') : [];
+  // 獲取產品圖片
+  const images = product.photos ? product.photos.split(',').map(img => img.trim()) : []
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // 控制模態框的顯示和隱藏
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
+  // 顯示加入購物車成功的模態框
   const showModal = (name) => {
-    setProductName('產品：' + name + '已成功加入購物車');
-    handleShow();
-  };
+    setProductName('產品：' + name + '已成功加入購物車')
+    handleShow()
+  }
+
+  // 增加商品數量
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1)
+  }
+
+  // 減少商品數量，不能小於1
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1)
+    }
+  }
 
   return (
-    <>
+    <div className={styles.container}>
+      <Cart />
       <div className="row mt-5 mx-2">
         <div className="col-sm-7">
           <div className="position-sticky" style={{ top: '2rem' }}>
@@ -75,9 +73,11 @@ const ProductDetail = ({ product }) => {
           </div>
         </div>
         <div className="col-sm-5">
-          <h4>{product.name}</h4>
-          <p>{product.category}</p>
-          <p>${product.price}</p>
+          <div className={styles.productInfo}>
+            <h1 className={styles.productName}>{product.name}</h1>
+            <h5 className={styles.productCategory}>{product.category}</h5>
+            <h5 className={styles.productPrice}>${product.price}</h5>
+          </div>
           <p className="product-desc">{product.description}</p>
           <ul>
             {product.details
@@ -86,19 +86,34 @@ const ProductDetail = ({ product }) => {
                   .map((detail, index) => <li key={index}>{detail}</li>)
               : null}
           </ul>
-          <button
-            className="btn btn-primary w-100 mb-3"
-            onClick={() => {
-              const item = { ...product, quantity: 1 };
-              addItem(item);
-              showModal(product.name);
-            }}
-          >
-            加入購物車
-          </button>
-          <button className="btn btn-outline-primary w-100">
-            <i className="bi bi-suit-heart"></i> 最愛
-          </button>
+          <div className={styles.quantityControlWrapper}>
+            <div className={styles.quantityControl}>
+              <button
+                className={styles.quantityButton}
+                onClick={decreaseQuantity}
+              >
+                -
+              </button>
+              <span className={styles.quantityDisplay}>{quantity}</span>
+              <button
+                className={styles.quantityButton}
+                onClick={increaseQuantity}
+              >
+                +
+              </button>
+              <button
+                className={styles.addToCartButton}
+                onClick={() => {
+                  const item = { ...product, quantity }
+                  addItem(item)
+                  showModal(product.name)
+                }}
+              >
+                加入購物車
+              </button>
+            </div>
+          </div>
+
           <div className="product-info my-5">
             <div
               className="accordion accordion-flush"
@@ -114,7 +129,7 @@ const ProductDetail = ({ product }) => {
                     data-bs-target="#panelsStayOpen-collapseOne"
                     aria-controls="panelsStayOpen-collapseOne"
                   >
-                    尺寸與版型
+                    成分
                   </button>
                 </h2>
                 <div
@@ -122,13 +137,7 @@ const ProductDetail = ({ product }) => {
                   className="accordion-collapse collapse"
                 >
                   <div className="accordion-body px-1">
-                    <ul>
-                      {product.sizeFit
-                        ? product.sizeFit
-                            .split(',')
-                            .map((size, index) => <li key={index}>{size}</li>)
-                        : null}
-                    </ul>
+                    <ul>{product.color}</ul>
                   </div>
                 </div>
               </div>
@@ -150,7 +159,7 @@ const ProductDetail = ({ product }) => {
                   className="accordion-collapse collapse"
                 >
                   <div className="accordion-body px-1">
-                    <p>{product.shippingInfo}</p>
+                    <ul>{product.tag}</ul>
                   </div>
                 </div>
               </div>
@@ -164,19 +173,20 @@ const ProductDetail = ({ product }) => {
                     aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseThree"
                   >
-                    評價({product.reviews ? product.reviews.length : 0}){'  '}
-                    <span className="star">&#9733;</span>
-                    <span className="star">&#9733;</span>
-                    <span className="star">&#9733;</span>
-                    <span className="star">&#9733;</span>
-                    <span className="star">&#9733;</span>
+                    產地
                   </button>
                 </h2>
+                <div
+                  id="panelsStayOpen-collapseTwo"
+                  className="accordion-collapse collapse"
+                ></div>
+
                 <div
                   id="panelsStayOpen-collapseThree"
                   className="accordion-collapse collapse"
                 >
                   <div className="accordion-body px-1">
+                    <ul>台灣</ul>
                     {product.reviews ? (
                       product.reviews.map((review, index) => (
                         <div className="commet" key={index}>
@@ -194,7 +204,7 @@ const ProductDetail = ({ product }) => {
                         </div>
                       ))
                     ) : (
-                      <p>暫無評論</p>
+                      <p></p>
                     )}
                   </div>
                 </div>
@@ -203,9 +213,10 @@ const ProductDetail = ({ product }) => {
           </div>
         </div>
       </div>
+
+      <hr />
       <div className="row mt-5 mx-2">
         <div className="col-sm-12">
-          <h4 className="text-center mb-5">探索 {product.name}</h4>
           {product.imagesDetail
             ? product.imagesDetail.map((image, index) => (
                 <div key={index} className="text-center my-5">
@@ -218,7 +229,28 @@ const ProductDetail = ({ product }) => {
             : null}
         </div>
       </div>
-      <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+      <div className="row mt-5 mx-2">
+        <div className="col-sm-12">
+          <div className="image-container text-center my-5">
+            <img
+              className="w-100"
+              src="/images/product/bg/product.jpg"
+              alt="Product Image"
+            />
+            <img
+              className="w-100"
+              src="/images/product/bg/product1.jpg"
+              alt="Product Image"
+            />
+          </div>
+        </div>
+      </div>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
         <Modal.Header closeButton>
           <Modal.Title>加入購物車訊息</Modal.Title>
         </Modal.Header>
@@ -230,15 +262,60 @@ const ProductDetail = ({ product }) => {
           <Button
             variant="primary"
             onClick={() => {
-              router.push('/cart');
+              router.push('/cart')
             }}
           >
             前往購物車結帳
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
-  );
+    </div>
+  )
 }
 
-export default ProductDetail;
+export default ProductDetail
+
+// 獲取所有產品的靜態路徑
+export async function getStaticPaths() {
+  try {
+    const res = await fetch('http://localhost:3005/api/products')
+    const responseData = await res.json()
+
+    if (!responseData.data.products) {
+      console.error('API response does not contain products')
+      throw new Error('API response does not contain products')
+    }
+
+    // 根據產品ID生成所有靜態路徑
+    const paths = responseData.data.products.map((product) => ({
+      params: { pid: product.id.toString().padStart(2, '0') },
+    }))
+
+    return { paths, fallback: false }
+  } catch (error) {
+    console.error('Error fetching products:', error)
+    return { paths: [], fallback: false }
+  }
+}
+
+// 根據路徑參數獲取對應產品的靜態屬性
+export async function getStaticProps({ params }) {
+  try {
+    const productId = parseInt(params.pid, 10) // 去除前導零並解析為整數
+    const res = await fetch(`http://localhost:3005/api/products/${productId}`)
+    const responseData = await res.json()
+
+    if (!responseData.data.product) {
+      return { notFound: true }
+    }
+
+    return {
+      props: {
+        initialProduct: responseData.data.product,
+      },
+    }
+  } catch (error) {
+    console.error('Error fetching product details:', error)
+    return { props: { initialProduct: null } }
+  }
+}

@@ -1,4 +1,9 @@
 import React, { useEffect, useRef } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faArrowLeftLong,
+  faArrowRightLong,
+} from '@fortawesome/free-solid-svg-icons'
 
 export default function FrontPageCarousel() {
   const cardsContainerRef = useRef(null)
@@ -341,14 +346,14 @@ export default function FrontPageCarousel() {
   return (
     <section
       id="trending-products"
-      className="section-secondary-color background1"
+      className="section-secondary-color carouselSection background1"
     >
       <div className="row d-flex justify-content-center">
         <div className="col-4 text-center">
           <h2 className="display-4 lxgw-wenkai-mono-tc-bold frontTitle">
             餐點介紹
           </h2>
-          <div className="text-center frontTitle text-dark ">
+          <div className="text-center frontTitle text-dark py-5 lxgw-wenkai-mono-tc-regular fs-5 ">
             我們餐廳提供豐富多樣的美食選擇，從精緻的開胃小菜到美味的主菜和甜品，每道菜品均選用新鮮食材，精心烹製。無論是傳統風味還是創新料理，都能滿足您的味蕾。邀請您來享受一場美食盛宴。
           </div>
         </div>
@@ -376,6 +381,18 @@ export default function FrontPageCarousel() {
                   <div className="imageContainer"></div>
                   <button className="carouselBtn">查看菜單</button>
                 </div>
+              </div>
+              <div className="btnGroup d-flex justify-content-evenly align-items-center mt-2">
+                <FontAwesomeIcon
+                  icon={faArrowLeftLong}
+                  width={100}
+                  className="preBtn"
+                />
+                <FontAwesomeIcon
+                  icon={faArrowRightLong}
+                  width={100}
+                  className="nextBtn"
+                />
               </div>
             </div>
           </div>

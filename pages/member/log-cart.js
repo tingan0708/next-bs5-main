@@ -96,7 +96,6 @@ export default function Profile() {
 
   return (
     <>
-      <Navbar />
       <div className="container my-5">
         <MemberNavbar />
         <Container fluid className="member-profile-container">
@@ -204,7 +203,6 @@ export default function Profile() {
           </div>
         </Container>
       </div>
-      <Footer />
       <style>{`
       {/*  動畫  */}
       .member-profile-container {

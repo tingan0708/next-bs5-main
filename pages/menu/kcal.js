@@ -166,14 +166,14 @@ export default function Kcal() {
   }, [])
 
   return (
-    <MudanlowLayout>
+    <>
       <div className="container">
         <MenuNav />
         <KcalTitle />
         <h3 className="world">請將想計算卡路里的品項拖拉至中心桌面!</h3>
         <div className="position height">
           <div
-            className="center-circle box"
+            className="center-menu-circle box"
             onDrop={handleDrop}
             onDragOver={handleDragOver}
           ></div>
@@ -264,13 +264,13 @@ export default function Kcal() {
         height: 100vh; /* 使整個區域垂直居中 */
       }
       {/* 中心大圓-網頁長度有改變要自己來手動調整top!! */} 
-      .center-circle {
+      .center-menu-circle {
         position: absolute;
         width: 400px;
         height: 400px;
         border-radius: 50%;
         background-image: url(/menu-d/fabric.webp);
-        top: 104%;
+        top: 790px;
         left: 50%;
         transform: translate(-50%, -46%);
         z-index: 1; /* 確保在最上層 */
@@ -390,6 +390,6 @@ export default function Kcal() {
       }
     `}</style>
       </div>
-    </MudanlowLayout>
+    </>
   )
 }

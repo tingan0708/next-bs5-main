@@ -58,7 +58,7 @@ export default function Dessert() {
   }, [dessert])
 
   return (
-    <MudanlowLayout>
+    <>
       <div className="topPhoto"></div>
       <MenuNav />
       <DessertTitle />
@@ -241,6 +241,6 @@ export default function Dessert() {
           }
         `}
       </style>
-    </MudanlowLayout>
+    </>
   )
 }

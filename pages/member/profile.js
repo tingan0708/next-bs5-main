@@ -165,7 +165,6 @@ export default function Profile() {
 
   return (
     <>
-      <MudanlowLayout />
       <div className="container profile my-5">
         <MemberNavbar />
         <div
@@ -376,7 +375,6 @@ export default function Profile() {
         {/* 用於顯示訊息的土司組件 */}
         <Toaster />
       </div>
-      <Footer />
       <style jsx>
         {`
           .button-content {
