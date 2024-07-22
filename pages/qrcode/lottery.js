@@ -3,10 +3,10 @@ import { LuckyWheel } from '@lucky-canvas/react'
 import Swal from 'sweetalert2'
 
 export default function Lottery() {
-  const [blocks] = useState([{ padding: '10px', background: '#869cfa' }])
+  const [blocks] = useState([{ padding: '10px', background: '#465952' }])
   const [prizes] = useState([
     {
-      background: '#e9e8fe',
+      background: '#C3F6E3',
       fonts: [
         { text: '再', top: '10%' },
         { text: '加', top: '40%' },
@@ -22,20 +22,84 @@ export default function Lottery() {
       ],
     },
     {
-      background: '#b8c5f2',
+      background: '#8AAFA1',
       fonts: [{ text: '' }],
       imgs: [
         {
           src: '/qrcode/lottery/452074646_975471984587702_8084564207493751396_n.jpg',
-          width: '40%',
+          width: '0%',
           rotate: true,
           alt: '芳草啤酒',
         },
       ],
     },
     {
-      background: '#e9e8fe',
-      fonts: [{ text: '2' }],
+      background: '#8AAFA1',
+      fonts: [{ text: '' }],
+      imgs: [
+        {
+          src: '/qrcode/lottery/452074646_975471984587702_8084564207493751396_n.jpg',
+          width: '90%',
+          rotate: true,
+          alt: '芳草啤酒',
+        },
+      ],
+    },
+    {
+      background: '#8AAFA1',
+      fonts: [{ text: '' }],
+      imgs: [
+        {
+          src: '/qrcode/lottery/452074646_975471984587702_8084564207493751396_n.jpg',
+          width: '0%',
+          rotate: true,
+          alt: '芳草啤酒',
+        },
+      ],
+    },
+    {
+      background: '#C3F6E3',
+      fonts: [{ text: '' }],
+      imgs: [
+        {
+          src: '/qrcode/lottery/9e28c8aefb688e9f4876754f24898b7f.png',
+          width: '0%',
+          rotate: true,
+          alt: '熱豆花',
+        },
+      ],
+    },
+    {
+      background: '#C3F6E3',
+      fonts: [{ text: '' }],
+      imgs: [
+        {
+          src: '/qrcode/lottery/9e28c8aefb688e9f4876754f24898b7f.png',
+          width: '100%',
+          rotate: true,
+          alt: '熱豆花',
+        },
+      ],
+    },
+    {
+      background: '#C3F6E3',
+      fonts: [{ text: '' }],
+      imgs: [
+        {
+          src: '/qrcode/lottery/9e28c8aefb688e9f4876754f24898b7f.png',
+          width: '0%',
+          rotate: true,
+          alt: '熱豆花',
+        },
+      ],
+    },
+    {
+      background: '#8AAFA1',
+      fonts: [
+        { text: '再', top: '10%' },
+        { text: '加', top: '40%' },
+        { text: '油', top: '70%' },
+      ],
       imgs: [
         {
           src: '/qrcode/lottery/b60da0f790950f2f1de622e46220497a-scaled.png',
@@ -46,50 +110,86 @@ export default function Lottery() {
       ],
     },
     {
-      background: '#b8c5f2',
-      fonts: [{ text: '3' }],
-      imgs: [
-        {
-          src: '/qrcode/lottery/b60da0f790950f2f1de622e46220497a-scaled.png',
-          width: '0%',
-          rotate: true,
-          alt: '銘謝惠顧',
-        },
-      ],
-    },
-    {
-      background: '#e9e8fe',
-      fonts: [{ text: '4' }],
-      imgs: [
-        {
-          src: '/qrcode/lottery/b60da0f790950f2f1de622e46220497a-scaled.png',
-          width: '50%',
-          rotate: true,
-          alt: '分解茶',
-        },
-      ],
-    },
-    {
-      background: '#b8c5f2',
+      background: '#C3F6E3',
       fonts: [{ text: '' }],
       imgs: [
         {
           src: '/qrcode/lottery/b60da0f790950f2f1de622e46220497a-scaled.png',
-          width: '50%',
+          width: '100%',
           rotate: true,
           alt: '分解茶',
+        },
+      ],
+    },
+    {
+      background: '#8AAFA1',
+      fonts: [{ text: '' }],
+      imgs: [
+        {
+          src: '/qrcode/lottery/9a0da310672d5ac0697fac9246104056.png',
+          width: '0%',
+          rotate: true,
+          alt: '杏仁豆腐',
+        },
+      ],
+    },
+    {
+      background: '#8AAFA1',
+      fonts: [{ text: '' }],
+      imgs: [
+        {
+          src: '/qrcode/lottery/9a0da310672d5ac0697fac9246104056.png',
+          width: '0%',
+          rotate: true,
+          alt: '杏仁豆腐',
+        },
+      ],
+    },
+    {
+      background: '#8AAFA1',
+      fonts: [{ text: '' }],
+      imgs: [
+        {
+          src: '/qrcode/lottery/9a0da310672d5ac0697fac9246104056.png',
+          width: '90%',
+          rotate: true,
+          alt: '杏仁豆腐',
+        },
+      ],
+    },
+    {
+      background: '#8AAFA1',
+      fonts: [{ text: '' }],
+      imgs: [
+        {
+          src: '/qrcode/lottery/9a0da310672d5ac0697fac9246104056.png',
+          width: '0%',
+          rotate: true,
+          alt: '杏仁豆腐',
+        },
+      ],
+    },
+    {
+      background: '#8AAFA1',
+      fonts: [{ text: '' }],
+      imgs: [
+        {
+          src: '/qrcode/lottery/9a0da310672d5ac0697fac9246104056.png',
+          width: '0%',
+          rotate: true,
+          alt: '杏仁豆腐',
         },
       ],
     },
   ])
   const [buttons, setButtons] = useState([
-    { radius: '40%', background: '#617df2' },
-    { radius: '35%', background: '#afc8ff' },
+    { radius: '40%', background: '#465952' },
+    { radius: '35%', background: '#8AAFA1' },
     {
       radius: '30%',
-      background: '#869cfa',
+      background: '#465952',
       pointer: true,
-      fonts: [{ text: '開始抽獎', top: '-10px' }],
+      fonts: [{ text: '開始抽獎', top: '-10px', fontColor: 'white' }],
       enabled: false,
     },
   ])
@@ -138,45 +238,65 @@ export default function Lottery() {
   return (
     <div
       style={{
-        margin: 'auto',
-        textAlign: 'center',
         backgroundImage: `url(/qrcode/山水畫.jpg)`,
+        backgroundSize: 'cover',
+        height: '100vh',
+        width: '100mvw',
+        display: 'flex',
+        justifyContent: 'center',
+        padding: '0',
+        margin: '0',
+        alignItems: 'center',
       }}
     >
-      {/* <img src="/qrcode/logo-gold.png" alt="" height="10%" id="logo" /> */}
-      <h2>本次消費金額: {tradeAmt}</h2>
-      <h3>剩餘抽獎次數: {lotteryCount}</h3>
-      <LuckyWheel
-        ref={myLucky}
-        width="500px"
-        height="500px"
-        blocks={blocks}
-        prizes={prizes}
-        buttons={buttons}
-        onStart={handleStart}
-        onEnd={(prize) => {
-          if (prize.imgs[0].alt === '銘謝惠顧') {
-            Swal.fire({
-              text: '差一點就中獎了!',
-              imageUrl: prize.imgs[0].src,
-              imageHeight: 0,
-              imageAlt: '沒中',
-            })
-            // console.log(generateCouponCode())
-          } else {
-            Swal.fire({
-              title: '中獎序號' + generateCouponCode(),
-              text:
-                '恭喜你抽到 ' +
-                prize.imgs[0].alt +
-                '，請於當次消費出示給現場人員兌換',
-              imageUrl: prize.imgs[0].src,
-              imageHeight: 500,
-              imageAlt: '中獎',
-            })
-          }
+      <div
+        style={{
+          // margin: 'auto',
+          textAlign: 'center',
         }}
-      />
+      >
+        <img
+          src="/qrcode/logo-gold.png"
+          alt=""
+          height="50px"
+          id="logo"
+          style={{ marginBottom: '50px' }}
+        />
+        <h2 style={{ color: 'white' }}>本次消費金額: {tradeAmt}</h2>
+        <h3 style={{ color: 'white' }}>剩餘抽獎次數: {lotteryCount}</h3>
+
+        <LuckyWheel
+          ref={myLucky}
+          width="400px"
+          height="400px"
+          blocks={blocks}
+          prizes={prizes}
+          buttons={buttons}
+          onStart={handleStart}
+          onEnd={(prize) => {
+            if (prize.imgs[0].alt === '銘謝惠顧') {
+              Swal.fire({
+                text: '差一點就中獎了!',
+                imageUrl: prize.imgs[0].src,
+                imageHeight: 0,
+                imageAlt: '沒中',
+              })
+              // console.log(generateCouponCode())
+            } else {
+              Swal.fire({
+                title: '中獎序號' + generateCouponCode(),
+                text:
+                  '恭喜你抽到 ' +
+                  prize.imgs[0].alt +
+                  '，請於當次消費出示給現場人員兌換',
+                imageUrl: prize.imgs[0].src,
+                imageHeight: 500,
+                imageAlt: '中獎',
+              })
+            }
+          }}
+        />
+      </div>
     </div>
   )
 }
