@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { LuckyWheel } from '@lucky-canvas/react'
+import Swal from 'sweetalert2'
 
 export default function Lottery() {
   const [blocks] = useState([{ padding: '10px', background: '#869cfa' }])
@@ -14,21 +15,21 @@ export default function Lottery() {
       imgs: [
         {
           src: '/qrcode/lottery/b60da0f790950f2f1de622e46220497a-scaled.png',
-          width: '50%',
+          width: '0%',
           rotate: true,
-          alt: '分解茶',
+          alt: '銘謝惠顧',
         },
       ],
     },
     {
       background: '#b8c5f2',
-      fonts: [{ text: '1' }],
+      fonts: [{ text: '' }],
       imgs: [
         {
-          src: '/qrcode/lottery/b60da0f790950f2f1de622e46220497a-scaled.png',
-          width: '50%',
+          src: '/qrcode/lottery/452074646_975471984587702_8084564207493751396_n.jpg',
+          width: '40%',
           rotate: true,
-          alt: '分解茶',
+          alt: '芳草啤酒',
         },
       ],
     },
@@ -38,9 +39,9 @@ export default function Lottery() {
       imgs: [
         {
           src: '/qrcode/lottery/b60da0f790950f2f1de622e46220497a-scaled.png',
-          width: '50%',
+          width: '0%',
           rotate: true,
-          alt: '分解茶',
+          alt: '銘謝惠顧',
         },
       ],
     },
@@ -50,9 +51,9 @@ export default function Lottery() {
       imgs: [
         {
           src: '/qrcode/lottery/b60da0f790950f2f1de622e46220497a-scaled.png',
-          width: '50%',
+          width: '0%',
           rotate: true,
-          alt: '分解茶',
+          alt: '銘謝惠顧',
         },
       ],
     },
@@ -125,6 +126,15 @@ export default function Lottery() {
     }
   }
 
+  function generateCouponCode(length = 10) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789' // 包含大寫字母和數字
+    let couponCode = ''
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length)
+      couponCode += characters[randomIndex]
+    }
+    return couponCode
+  }
   return (
     <div
       style={{
@@ -145,11 +155,26 @@ export default function Lottery() {
         buttons={buttons}
         onStart={handleStart}
         onEnd={(prize) => {
-          alert(
-            '恭喜你抽到 ' +
-              prize.imgs[0].alt +
-              ' 號獎品，請於當次消費出示給現場人員使用'
-          )
+          if (prize.imgs[0].alt === '銘謝惠顧') {
+            Swal.fire({
+              text: '差一點就中獎了!',
+              imageUrl: prize.imgs[0].src,
+              imageHeight: 0,
+              imageAlt: '沒中',
+            })
+            // console.log(generateCouponCode())
+          } else {
+            Swal.fire({
+              title: '中獎序號' + generateCouponCode(),
+              text:
+                '恭喜你抽到 ' +
+                prize.imgs[0].alt +
+                '，請於當次消費出示給現場人員兌換',
+              imageUrl: prize.imgs[0].src,
+              imageHeight: 500,
+              imageAlt: '中獎',
+            })
+          }
         }}
       />
     </div>

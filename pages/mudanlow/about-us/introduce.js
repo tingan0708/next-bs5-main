@@ -27,7 +27,10 @@ export default function Introduce() {
             </p>
           </div>
           <div className="col-6 col-sm-12 col-lg-6">
-            <img className="content-img" src="/about-us/DSC00584.jpg" />
+            <img
+              className="content-img"
+              src="/about-us/410839992_827676699367232_8473206158438389325_n.jpg"
+            />
           </div>
         </div>
         <div className="row align-items-center text-center g-2 mt-5">
