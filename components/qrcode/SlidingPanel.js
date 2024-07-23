@@ -34,6 +34,8 @@ const SlidingPanel = ({
   const [order, setOrder] = useState({})
   const [isLoading, setIsLoading] = useState(true)
   const [result, setResult] = useState({ returnCode: '', returnMessage: '' })
+  const [startY, setStartY] = useState(0) // 用于检测拖动开始位置
+  const [isDragging, setIsDragging] = useState(false) // 用于标记是否正在拖动
 
   const panelRef = useRef(null)
   const scrollToBottomRef = useRef(null)
@@ -142,6 +144,26 @@ const SlidingPanel = ({
     }
   }
 
+  // 处理拖动开始事件
+  const handleMouseDown = (event) => {
+    setStartY(event.clientY)
+    setIsDragging(true)
+  }
+
+  // 处理拖动结束事件
+  const handleMouseUp = (event) => {
+    if (isDragging) {
+      const endY = event.clientY
+      const distance = endY - startY
+
+      // 如果拖动距离超过一定阈值，则切换面板的打开状态
+      if (distance > 50) {
+        togglePanel(event)
+      }
+      setIsDragging(false)
+    }
+  }
+
   return (
     <div>
       <button onClick={togglePanel} style={styles.button}>
@@ -158,6 +180,9 @@ const SlidingPanel = ({
         role="button"
         tabIndex="0"
         onKeyPress={handleKeyPress}
+        onMouseDown={handleMouseDown} // 添加 mouseDown 事件处理
+        onMouseUp={handleMouseUp} // 添加 mouseUp 事件处理
+        // onMouseMove={handleMouseMove}  // 添加 mouseMove 事件处理
       >
         <h3>購物車詳情</h3>
         <ul className="list-group">
