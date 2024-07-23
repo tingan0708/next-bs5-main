@@ -127,9 +127,9 @@ export default function Qrcode() {
       <div className="">
         <div className={styles.menuPage} id="menu-page">
           <header className={styles.header}>
-            <img src="/qrcode/logo-gold.png" alt="" height="100%" id="logo" />
-            <p>線上點餐系統</p>
-            <p>桌號 2</p>
+            <img src="/qrcode/logo-gold.png" alt="" height="35px" id="logo" />
+            <h6>線上點餐系統</h6>
+            <h6>桌號 2</h6>
           </header>
           <div className={`${styles.tabDevider}`}>
             <a className="btn btn-outline-secondary btn-sm" href="#product">
@@ -181,12 +181,12 @@ export default function Qrcode() {
             />
           </div>
           <footer className={styles.footer}>
-            <div>
+            <h5>
               餐點數量：<span id="total-item">{totalItems}</span>
-            </div>
-            <div>
+            </h5>
+            <h5>
               金額 $<span id="total-price">{totalPrice}</span>
-            </div>
+            </h5>
             <SlidingPanel
               cart={cart}
               removeFromCart={removeFromCart}

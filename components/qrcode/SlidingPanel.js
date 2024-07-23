@@ -145,7 +145,7 @@ const SlidingPanel = ({
   return (
     <div>
       <button onClick={togglePanel} style={styles.button}>
-        查看購物車
+        <h5>查看購物車</h5>
       </button>
       <div
         ref={panelRef}
@@ -167,7 +167,7 @@ const SlidingPanel = ({
               style={styles.listGroupItem}
               key={index}
             >
-              <div>{item.name}</div>
+              <div style={styles.itemName}>{item.name}</div>
               <div>
                 NT$ {item.price} × {item.quantity}
               </div>
@@ -255,6 +255,9 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  itemName: {
+    width: '40%',
   },
   emptyDiv: {
     height: '1px', // 空白 div 的高度，可以设置为较小的值
